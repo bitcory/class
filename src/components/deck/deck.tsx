@@ -24,6 +24,9 @@ export function Deck({ week }: { week: Week }) {
   const hashFixed = useRef(false);
   const [offset, setOffset] = useState(0);
   const [current, setCurrent] = useState(0);
+  const [barHidden, setBarHidden] = useState(false);
+  const lastYRef = useRef(0);
+  const lockShowRef = useRef(0); // 이 시각(ms)까지는 자동 숨김을 잠근다
   const [tocOpen, setTocOpen] = useState(false);
   const [resumeAt, setResumeAt] = useState<number | null>(null);
   const [projector, setProjector] = useState(false);
@@ -39,6 +42,10 @@ export function Deck({ week }: { week: Week }) {
       const el = document.querySelector<HTMLElement>(
         `[data-slide-index="${clamped}"]`,
       );
+      // 버튼으로 이동할 때는 진행바를 보여주고, 뒤따르는 자동 스크롤이
+      // 진행바를 숨기지 않도록 잠깐 잠근다.
+      setBarHidden(false);
+      lockShowRef.current = Date.now() + 800;
       el?.scrollIntoView({ behavior, block: "start" });
     },
     [],
@@ -91,6 +98,34 @@ export function Deck({ week }: { week: Week }) {
     };
   }, [projector]);
 
+  // 읽을 때 화면을 넓게 쓰도록: 아래로 스크롤하면 진행바를 접어 숨기고,
+  // 위로 스크롤하거나 맨 위 근처면 다시 보여준다. (사이트 헤더는 흐름상
+  // 스크롤되어 사라지므로, 둘이 합쳐져 깔끔한 강의 화면이 된다.)
+  useEffect(() => {
+    lastYRef.current = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const y = window.scrollY;
+        const last = lastYRef.current;
+        lastYRef.current = y;
+        if (Date.now() < lockShowRef.current) return; // 버튼 이동 직후엔 유지
+        if (y < 120) {
+          setBarHidden(false);
+          return;
+        }
+        const delta = y - last;
+        if (delta > 6) setBarHidden(true); // 아래로 → 숨김
+        else if (delta < -6) setBarHidden(false); // 위로 → 표시
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   // #슬라이드id 로 들어온 경우, 오프셋을 잰 뒤 다시 정확히 맞춘다.
   useEffect(() => {
     if (offset === 0 || hashFixed.current || !window.location.hash) return;
@@ -98,6 +133,7 @@ export function Deck({ week }: { week: Week }) {
     const el = document.getElementById(window.location.hash.slice(1));
     if (!el) return;
     // 폰트가 늦게 로드되면 위치가 밀리므로, 폰트 준비 후 한 번 더 맞춘다.
+    lockShowRef.current = Date.now() + 1000; // 딥링크 착지 시 진행바 유지
     const align = () => el.scrollIntoView({ behavior: "auto", block: "start" });
     align();
     document.fonts?.ready.then(align);
@@ -176,7 +212,10 @@ export function Deck({ week }: { week: Week }) {
       {/* 상단 진행 바 — 헤더 바로 아래에 붙는다 */}
       <div
         ref={barRef}
-        className="deck-bar sticky top-0 z-30 border-b-2 border-border bg-background/95 backdrop-blur"
+        className={cn(
+          "deck-bar sticky top-0 z-30 border-b-2 border-border bg-background/95 backdrop-blur transition-transform duration-200",
+          barHidden && "-translate-y-full",
+        )}
       >
         <div className="mx-auto flex w-full max-w-5xl items-center gap-2.5 px-4 py-2.5 sm:gap-3 sm:px-8">
           <div className="min-w-0 flex-1">
