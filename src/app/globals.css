@@ -131,7 +131,7 @@
    */
   .deck-slide {
     scroll-margin-top: var(--deck-offset, 10rem);
-    min-height: calc(100svh - var(--deck-offset, 10rem) - 5rem);
+    min-height: calc(100svh - var(--deck-offset, 10rem));
   }
 }
 
@@ -153,8 +153,7 @@ html.projector-mode > body > footer {
   display: none;
 }
 html.projector-mode .deck-slide > div,
-html.projector-mode .deck-bar > div,
-html.projector-mode .deck-nav > div {
+html.projector-mode .deck-bar > div {
   max-width: 72rem;
 }
 /* 짧은 장은 가운데, 긴 장은 위에서부터 (safe = 넘칠 때 잘리지 않게) */

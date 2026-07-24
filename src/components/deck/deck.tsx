@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-  ChevronDown,
-  ChevronUp,
+  ChevronLeft,
+  ChevronRight,
   Clock,
   List,
   Maximize,
@@ -171,7 +171,7 @@ export function Deck({ week }: { week: Week }) {
           ? ({ "--deck-offset": `${offset}px` } as React.CSSProperties)
           : undefined
       }
-      className={cn("bg-background pb-28", projector && "projector")}
+      className={cn("bg-background pb-10", projector && "projector")}
     >
       {/* 상단 진행 바 — 헤더 바로 아래에 붙는다 */}
       <div
@@ -278,30 +278,29 @@ export function Deck({ week }: { week: Week }) {
         <SlideView key={slide.id} slide={slide} index={i} total={total} />
       ))}
 
-      {/* 하단 이동 바 */}
-      <div className="deck-nav fixed inset-x-0 bottom-0 z-30 border-t-2 border-border bg-background/95 pb-[env(safe-area-inset-bottom)] backdrop-blur">
-        <div className="mx-auto flex w-full max-w-5xl items-center gap-3 px-4 py-3 sm:px-8">
-          <Button
-            variant="outline"
-            size="lg"
-            className="flex-1"
-            onClick={() => goTo(Math.max(current - 1, 0))}
-            disabled={current === 0}
-          >
-            <ChevronUp aria-hidden />
-            이전
-          </Button>
-          <Button
-            size="lg"
-            className="flex-[2]"
-            onClick={() => goTo(Math.min(current + 1, total - 1))}
-            disabled={current >= total - 1}
-          >
-            다음
-            <ChevronDown aria-hidden />
-          </Button>
-        </div>
-      </div>
+      {/* 좌우 원형 이동 버튼 — 화면 세로 중앙에 고정 */}
+      <button
+        type="button"
+        onClick={() => goTo(Math.max(current - 1, 0))}
+        disabled={current === 0}
+        aria-label="이전 장"
+        className={cn(
+          "fixed top-1/2 left-1 z-30 flex size-12 -translate-y-1/2 items-center justify-center rounded-full border-2 border-border bg-background/85 text-foreground shadow-md backdrop-blur transition hover:bg-muted disabled:pointer-events-none disabled:opacity-0 sm:left-5 sm:size-14",
+        )}
+      >
+        <ChevronLeft className="size-7 sm:size-8" aria-hidden />
+      </button>
+      <button
+        type="button"
+        onClick={() => goTo(Math.min(current + 1, total - 1))}
+        disabled={current >= total - 1}
+        aria-label="다음 장"
+        className={cn(
+          "fixed top-1/2 right-1 z-30 flex size-12 -translate-y-1/2 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition hover:bg-primary/90 disabled:pointer-events-none disabled:opacity-0 sm:right-5 sm:size-14",
+        )}
+      >
+        <ChevronRight className="size-7 sm:size-8" aria-hidden />
+      </button>
 
       {/* 목차 */}
       {tocOpen && (

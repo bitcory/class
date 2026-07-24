@@ -15,7 +15,7 @@ await page.addInitScript(() => {
     Promise.reject(new Error("blocked"));
 });
 
-await page.goto(`${base}/week/1?teacher=1`, { waitUntil: "networkidle" });
+await page.goto(`${base}/week/1?teacher=ssam2026`, { waitUntil: "networkidle" });
 await page.waitForTimeout(900);
 
 await page.getByRole("button", { name: /발표 화면/ }).click();
@@ -50,7 +50,7 @@ if (after.barTop > 1) problems.push(`진행바가 맨 위에 안 붙음 (top=${a
 if (after.chipTop < after.barBottom)
   problems.push(`슬라이드 상단이 가림 (chip=${after.chipTop} < bar=${after.barBottom})`);
 if (after.innerWidth < 1000) problems.push(`본문 폭이 안 넓어짐 (${after.innerWidth})`);
-if (after.rootFontSize !== "22px") problems.push(`글자 확대 안 됨 (${after.rootFontSize})`);
+if (after.rootFontSize !== "20px") problems.push(`발표 글자 20px 아님 (${after.rootFontSize})`);
 
 if (problems.length) {
   console.log(problems.map((p) => `✗ ${p}`).join("\n"));

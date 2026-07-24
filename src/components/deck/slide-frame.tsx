@@ -39,7 +39,7 @@ export function SlideFrame({
       className={cn(
         // 한 화면 = 한 장. 내용은 위에서부터 채워 하단 고정 바에 덜 가리게 한다.
         // 짧은 장은 min-height 로 화면을 채우고, 긴 장은 자연스럽게 늘어난다.
-        "deck-slide flex min-h-[calc(100svh-var(--deck-offset,6rem)-5.5rem)] flex-col justify-start border-b-2 border-border py-5 sm:py-6",
+        "deck-slide flex min-h-[calc(100svh-var(--deck-offset,6rem))] flex-col justify-start border-b-2 border-border py-5 sm:py-6",
         className,
       )}
     >

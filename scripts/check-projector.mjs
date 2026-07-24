@@ -9,7 +9,7 @@ const browser = await chromium.launch({ channel: "chrome" });
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
 const page = await ctx.newPage();
 
-await page.goto(`${base}/week/1?teacher=1`, { waitUntil: "networkidle" });
+await page.goto(`${base}/week/1?teacher=ssam2026`, { waitUntil: "networkidle" });
 await page.waitForTimeout(1000);
 
 const before = await page.evaluate(() => {
