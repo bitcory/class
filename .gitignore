@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+.env*
+
+# 로컬 검증 캡처 (원하면 지움)
+/shots
+/tmp-shots
