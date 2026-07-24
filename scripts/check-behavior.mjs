@@ -56,17 +56,25 @@ const saved = await page.evaluate(() =>
 );
 check("따라하기 체크 저장", saved === "[true,false,false,false]", String(saved));
 
-// 6) 강사 모드
+// 6) 강사 모드 — 수강생에겐 숨김, 비밀 암호 링크로만 켜짐
 check(
   "강사 노트 기본 숨김",
   !(await page.getByText("강사 노트").first().isVisible()),
 );
-await page.getByRole("button", { name: /강사 모드/ }).click();
-await page.waitForTimeout(400);
 check(
-  "강사 모드 켜면 노트 표시",
+  "옛 ?teacher=1 은 막힘",
+  await page.goto(`${base}/week/1?teacher=1`).then(async () => {
+    await page.waitForTimeout(500);
+    return !(await page.getByText("강사 노트").first().isVisible());
+  }),
+);
+await page.goto(`${base}/week/1?teacher=ssam2026`);
+await page.waitForTimeout(700);
+check(
+  "비밀 암호 링크로 노트 표시",
   await page.getByText("강사 노트").first().isVisible(),
 );
+check("암호가 주소창에서 제거됨", !page.url().includes("teacher"));
 
 // 7) 글씨 크기
 await page.getByRole("button", { name: /글씨 크기 바꾸기/ }).click();

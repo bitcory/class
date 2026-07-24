@@ -14,6 +14,12 @@ export type FontScale = "normal" | "large" | "xlarge";
 const SCALE_KEY = "tbclass:font-scale";
 const TEACHER_KEY = "tbclass:teacher-mode";
 
+// 강사 대본(강사 모드)을 여는 비밀 암호.
+// 강사용 링크:  /week/1?teacher=ssam2026   (이 값을 바꾸면 링크도 바뀝니다)
+// 수강생은 이 링크·암호를 모르므로 대본을 볼 수 없습니다.
+// 끄기 링크:    /week/1?teacher=off
+const TEACHER_PASS = "ssam2026";
+
 type PrefsValue = {
   scale: FontScale;
   setScale: (s: FontScale) => void;
@@ -37,12 +43,29 @@ export function PrefsProvider({ children }: { children: React.ReactNode }) {
       document.documentElement.dataset.scale = savedScale;
     }
 
+    // 강사 모드: 올바른 암호(?teacher=<암호>)로만 켜지고, 한 번 켜지면
+    // 이 브라우저에 저장되어 다른 페이지에서도 유지된다. ?teacher=off 로 끈다.
     const url = new URL(window.location.href);
     const fromQuery = url.searchParams.get("teacher");
-    const savedTeacher =
-      fromQuery === "1" ? true : localStorage.getItem(TEACHER_KEY) === "1";
-    if (savedTeacher) setTeacherState(true);
-    if (fromQuery === "1") localStorage.setItem(TEACHER_KEY, "1");
+    let on = localStorage.getItem(TEACHER_KEY) === "1";
+    if (fromQuery === TEACHER_PASS) {
+      on = true;
+      localStorage.setItem(TEACHER_KEY, "1");
+    } else if (fromQuery === "off") {
+      on = false;
+      localStorage.removeItem(TEACHER_KEY);
+    }
+    setTeacherState(on);
+
+    // 암호가 주소창에 남지 않도록 teacher 파라미터를 URL에서 제거
+    if (fromQuery !== null) {
+      url.searchParams.delete("teacher");
+      window.history.replaceState(
+        null,
+        "",
+        url.pathname + url.search + url.hash,
+      );
+    }
 
     setReady(true);
   }, []);

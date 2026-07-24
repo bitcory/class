@@ -4,26 +4,28 @@ import { Presentation } from "lucide-react";
 import { usePrefs } from "@/lib/prefs";
 import { cn } from "@/lib/utils";
 
-/** 강사 모드 — 켜면 슬라이드에 진행 대본이 붙는다. 수강생 화면에는 흔적이 남지 않는다. */
+/**
+ * 강사 모드가 '켜져 있을 때만' 보이는 끄기 버튼.
+ * 수강생 화면(강사 모드 꺼짐)에는 아무것도 렌더되지 않는다.
+ * 켜는 것은 오직 비밀 암호 링크(?teacher=<암호>)로만 가능하다.
+ */
 export function TeacherToggle({ className }: { className?: string }) {
   const { teacher, setTeacher, ready } = usePrefs();
+
+  if (!ready || !teacher) return null;
 
   return (
     <button
       type="button"
-      onClick={() => setTeacher(!teacher)}
-      aria-pressed={ready ? teacher : undefined}
-      title="강사 모드"
+      onClick={() => setTeacher(false)}
+      title="강사 모드 끄기"
       className={cn(
-        "inline-flex size-11 shrink-0 items-center justify-center rounded-xl border-2 transition-colors sm:size-12",
-        ready && teacher
-          ? "border-primary bg-primary text-primary-foreground"
-          : "border-transparent text-muted-foreground/50 hover:border-border hover:text-foreground",
+        "inline-flex h-11 shrink-0 items-center gap-1.5 rounded-xl border-2 border-primary bg-primary px-2.5 text-base font-semibold text-primary-foreground sm:h-12 sm:px-3",
         className,
       )}
     >
       <Presentation className="size-5" aria-hidden />
-      <span className="sr-only">강사 모드 {teacher ? "끄기" : "켜기"}</span>
+      <span>강사 모드 끄기</span>
     </button>
   );
 }
