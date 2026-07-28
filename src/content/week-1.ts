@@ -16,10 +16,11 @@ export const week1: Week = {
       nav: "표지",
       tone: "concept",
       type: "cover",
+      label: "1주차",
       title: "AI와 처음 만나기",
       subtitle:
         "AI는 어렵지 않습니다. 말만 걸 줄 알면 됩니다.",
-      meta: ["1주차", "3시간", "생성형 AI·LLM의 이해 + AI로 문서 작성"],
+      meta: ["3시간", "생성형 AI·LLM의 이해 + AI로 문서 작성"],
       notes: {
         time: "0~10분",
         say: [

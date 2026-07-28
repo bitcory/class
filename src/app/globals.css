@@ -77,16 +77,33 @@
   }
   html {
     /* 글씨 크기 3단계: 보통 18px / 크게 20px / 아주 크게 22px */
-    font-size: 18px;
+    --base-font: 18px;
+    /* 화면이 넓어지면 기준 글자를 함께 키운다 (아래 미디어 쿼리에서 조절) */
+    --font-boost: 1;
+    font-size: calc(var(--base-font) * var(--font-boost));
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
   }
   html[data-scale="large"] {
-    font-size: 20px;
+    --base-font: 20px;
   }
   html[data-scale="xlarge"] {
-    font-size: 22px;
+    --base-font: 22px;
+  }
+  /*
+   * 넓은 화면 = 강의실 빔프로젝터/큰 모니터. 뒷자리에서도 읽히도록 키운다.
+   * rem 기반이라 글자·여백·본문 폭이 한꺼번에 비례해서 커진다.
+   */
+  @media (min-width: 1280px) {
+    html {
+      --font-boost: 1.12;
+    }
+  }
+  @media (min-width: 1680px) {
+    html {
+      --font-boost: 1.28;
+    }
   }
   body {
     background: var(--background);
@@ -140,9 +157,20 @@
  * @layer 밖에 두어야 한다 — Tailwind utilities(max-w-3xl 등)보다 뒤에 적용되어야
  * 본문 폭·글자 크기를 실제로 키울 수 있다.
  */
+/*
+ * 넓은 화면에서는 짧은 장이 위로 몰리지 않게 가운데로 모은다.
+ * safe = 내용이 화면보다 길면 위에서부터 (윗부분이 잘려 못 보는 것 방지).
+ * @layer 밖에 두어야 Tailwind 의 justify-start 유틸리티를 이긴다.
+ */
+@media (min-width: 1024px) {
+  .deck-slide {
+    justify-content: safe center;
+  }
+}
+
 html.projector-mode {
   /* 뒷자리에서도 읽히도록 기준 글자를 키운다 (rem 기반이라 전부 함께 커진다) */
-  font-size: 20px;
+  --base-font: 20px;
 }
 /* 발표 화면은 '수강생이 보는 화면'이다. 강사 대본은 띄우지 않는다. */
 html.projector-mode .deck-teacher-note {

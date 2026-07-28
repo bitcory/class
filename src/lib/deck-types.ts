@@ -43,6 +43,8 @@ export type Slide = SlideBase &
   (
     | {
         type: "cover";
+        /** 표지 가운데에 크게 나오는 회차 표시 — "1주차" */
+        label?: string;
         title: string;
         subtitle: string;
         meta: string[];

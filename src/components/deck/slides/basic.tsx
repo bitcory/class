@@ -14,8 +14,20 @@ const MEASURE = "max-w-3xl";
 
 export function CoverSlide({ slide }: { slide: Of<"cover"> }) {
   return (
-    <div>
-      <div className="flex flex-wrap gap-2">
+    // 표지는 한 장 전체를 써서 가운데로 모은다. 회차가 가장 크게 보인다.
+    // 모바일에서는 좌우 이동 버튼(size-12)에 글자가 가리지 않도록 여백을 준다.
+    <div className="flex min-h-[60svh] flex-col items-center justify-center px-11 text-center break-keep sm:px-0">
+      {slide.label && (
+        <p className="text-6xl font-black tracking-tight text-primary sm:text-8xl">
+          {slide.label}
+        </p>
+      )}
+      <h1 className={`mt-4 text-balance ${H1}`}>{slide.title}</h1>
+      <p className={`mt-5 ${MEASURE} ${LEAD} text-balance text-muted-foreground`}>
+        {slide.subtitle}
+      </p>
+
+      <div className="mt-8 flex flex-wrap justify-center gap-2">
         {slide.meta.map((m) => (
           <span
             key={m}
@@ -25,9 +37,8 @@ export function CoverSlide({ slide }: { slide: Of<"cover"> }) {
           </span>
         ))}
       </div>
-      <h1 className={`mt-6 ${H1}`}>{slide.title}</h1>
-      <p className={`mt-4 ${MEASURE} ${LEAD} text-muted-foreground`}>{slide.subtitle}</p>
-      <p className="mt-8 flex items-center gap-2 text-lg font-semibold text-primary">
+
+      <p className="mt-10 flex items-center gap-2 text-lg font-semibold text-primary">
         아래로 넘기면 시작합니다 <ArrowRight className="size-5" aria-hidden />
       </p>
     </div>
