@@ -11,6 +11,10 @@ import {
   WarningSlide,
 } from "@/components/deck/slides/basic";
 import {
+  GallerySlide,
+  StorySlide,
+} from "@/components/deck/slides/intro";
+import {
   CompareSlide,
   PromptSlide,
   RulesSlide,
@@ -30,6 +34,8 @@ export function SlideView({
   return (
     <SlideFrame slide={slide} index={index} total={total}>
       {slide.type === "cover" && <CoverSlide slide={slide} />}
+      {slide.type === "story" && <StorySlide slide={slide} />}
+      {slide.type === "gallery" && <GallerySlide slide={slide} />}
       {slide.type === "goal" && <GoalSlide slide={slide} />}
       {slide.type === "point" && <PointSlide slide={slide} />}
       {slide.type === "analogy" && <AnalogySlide slide={slide} />}

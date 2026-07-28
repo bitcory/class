@@ -48,6 +48,30 @@ export type Slide = SlideBase &
         meta: string[];
       }
     | {
+        /** 인사말 — 시대 흐름(삐삐→AI)처럼 단계로 공감시키는 장 */
+        type: "story";
+        title: string;
+        lead?: string;
+        steps: {
+          era: string;
+          title: string;
+          desc: string;
+          /** 마지막 '지금' 칸처럼 강조할 때 */
+          highlight?: boolean;
+        }[];
+        quote?: string;
+        point?: string;
+      }
+    | {
+        /** 강의 현장 사진 + 숫자로 신뢰를 주는 장 */
+        type: "gallery";
+        title: string;
+        lead?: string;
+        stats?: { value: string; label: string }[];
+        photos: { src: string; alt: string; caption: string }[];
+        footer?: string;
+      }
+    | {
         type: "goal";
         title: string;
         lead?: string;

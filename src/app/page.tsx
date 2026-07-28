@@ -70,6 +70,9 @@ export default function HomePage() {
           <p className="mt-6 text-base text-muted-foreground">
             {course.target}
           </p>
+          <p className="mt-3 text-base text-muted-foreground">
+            EBS 특강 · AI크루 아카데미 수강생 330명과 함께해 온 강사가 진행합니다.
+          </p>
         </div>
       </section>
 

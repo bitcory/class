@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Check, Mail, MessageCircle, UserRound } from "lucide-react";
+import {
+  Check,
+  ExternalLink,
+  GraduationCap,
+  Mail,
+  MessageCircle,
+  UserRound,
+} from "lucide-react";
 import { instructor } from "@/content/instructor";
 
 export const metadata: Metadata = {
@@ -12,13 +19,15 @@ export default function InstructorPage() {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-8 sm:py-20">
       {/* 프로필 */}
-      <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-        <div className="relative size-36 shrink-0 overflow-hidden rounded-3xl border-2 border-border bg-muted sm:size-48">
+      <div className="flex flex-col items-start gap-7 sm:flex-row sm:items-center sm:gap-10">
+        {/* 세로 인물 사진 — 정사각형으로 자르면 얼굴이 작아져서 3:4 그대로 쓴다 */}
+        <div className="relative aspect-[3/4] w-44 shrink-0 overflow-hidden rounded-3xl border-2 border-border bg-muted sm:w-60">
           <Image
             src={instructor.photo}
             alt={`${instructor.name} 강사 사진`}
             fill
-            sizes="160px"
+            priority
+            sizes="(min-width: 640px) 240px, 176px"
             className="object-cover"
           />
           <span className="absolute inset-0 -z-10 flex items-center justify-center">
@@ -93,6 +102,25 @@ export default function InstructorPage() {
               </li>
             ))}
           </ul>
+
+          <h3 className="mt-8 flex items-center gap-2.5 text-xl font-bold">
+            <GraduationCap className="size-6 text-primary" aria-hidden />
+            학력
+          </h3>
+          <ul className="mt-4 space-y-2.5">
+            {instructor.education.map((e) => (
+              <li
+                key={e.school}
+                className="flex flex-col gap-1 text-lg sm:flex-row sm:items-baseline sm:gap-3"
+              >
+                <span className="font-bold">{e.school}</span>
+                <span className="text-muted-foreground">{e.detail}</span>
+                <span className="text-base text-muted-foreground sm:ml-auto">
+                  {e.period}
+                </span>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section>
@@ -107,6 +135,18 @@ export default function InstructorPage() {
                   aria-hidden
                 />
                 {l}
+              </li>
+            ))}
+          </ul>
+
+          <h3 className="mt-8 text-xl font-bold">수업에서 쓰는 도구</h3>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {instructor.tools.map((t) => (
+              <li
+                key={t}
+                className="rounded-lg border-2 border-border px-3 py-1.5 text-base font-semibold text-muted-foreground"
+              >
+                {t}
               </li>
             ))}
           </ul>
@@ -127,9 +167,16 @@ export default function InstructorPage() {
               <a
                 key={c.label}
                 href={c.href}
+                {...(c.href.startsWith("http")
+                  ? { target: "_blank", rel: "noreferrer" }
+                  : {})}
                 className="inline-flex h-14 flex-1 items-center justify-center gap-2 rounded-xl bg-foreground px-5 text-lg font-semibold text-background hover:bg-foreground/90"
               >
-                <Mail className="size-5" aria-hidden />
+                {c.href.startsWith("mailto:") ? (
+                  <Mail className="size-5" aria-hidden />
+                ) : (
+                  <ExternalLink className="size-5" aria-hidden />
+                )}
                 {c.label}
               </a>
             ) : (
