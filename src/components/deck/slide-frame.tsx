@@ -35,7 +35,7 @@ export function SlideFrame({
     <section
       id={slide.id}
       data-slide-index={index}
-      aria-label={`${index + 1}번째 장: ${slide.nav}`}
+      aria-label={`${total}장 중 ${index + 1}번째 장: ${slide.nav}`}
       className={cn(
         // 한 화면 = 한 장. 내용은 위에서부터 채워 하단 고정 바에 덜 가리게 한다.
         // 짧은 장은 min-height 로 화면을 채우고, 긴 장은 자연스럽게 늘어난다.
@@ -44,6 +44,7 @@ export function SlideFrame({
       )}
     >
       <div className="mx-auto w-full max-w-5xl px-4 sm:px-8">
+        {/* 장 번호는 상단 진행바에 이미 있으므로 여기서는 성격 표시만 남긴다 */}
         <div className="mb-4 flex items-center gap-3">
           <span
             className={cn(
@@ -52,9 +53,6 @@ export function SlideFrame({
             )}
           >
             {TONE_LABEL[slide.tone]}
-          </span>
-          <span className="text-base font-semibold text-muted-foreground">
-            {index + 1} / {total}
           </span>
         </div>
 
