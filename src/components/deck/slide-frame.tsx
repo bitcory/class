@@ -1,22 +1,8 @@
 "use client";
 
 import { TeacherNotes } from "@/components/deck/teacher-notes";
-import type { Slide, Tone } from "@/lib/deck-types";
+import type { Slide } from "@/lib/deck-types";
 import { cn } from "@/lib/utils";
-
-const TONE_LABEL: Record<Tone, string> = {
-  concept: "설명",
-  practice: "같이 해봐요",
-  warning: "꼭 기억하세요",
-  done: "정리",
-};
-
-const TONE_STYLE: Record<Tone, string> = {
-  concept: "bg-tone-concept/10 text-tone-concept",
-  practice: "bg-tone-practice/12 text-tone-practice",
-  warning: "bg-tone-warning/12 text-tone-warning",
-  done: "bg-tone-done/12 text-tone-done",
-};
 
 export function SlideFrame({
   slide,
@@ -43,19 +29,12 @@ export function SlideFrame({
         className,
       )}
     >
+      {/*
+        장 번호(1/16)와 성격 표시(설명·같이 해봐요)는 넣지 않는다.
+        번호는 상단 진행바에 있고, 성격은 제목과 색으로 이미 드러난다.
+        강의 화면에서는 내용 말고 아무것도 안 보이는 편이 낫다.
+      */}
       <div className="mx-auto w-full max-w-5xl px-4 sm:px-8">
-        {/* 장 번호는 상단 진행바에 이미 있으므로 여기서는 성격 표시만 남긴다 */}
-        <div className="mb-4 flex items-center gap-3">
-          <span
-            className={cn(
-              "rounded-lg px-3 py-1 text-base font-bold",
-              TONE_STYLE[slide.tone],
-            )}
-          >
-            {TONE_LABEL[slide.tone]}
-          </span>
-        </div>
-
         {children}
 
         <TeacherNotes notes={slide.notes} />

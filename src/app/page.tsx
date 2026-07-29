@@ -46,7 +46,7 @@ export default function HomePage() {
             <span className="text-primary">말만 걸 줄 알면</span> 됩니다.
           </h1>
           <p className="mt-7 max-w-3xl text-xl leading-relaxed text-muted-foreground sm:text-2xl">
-            컴퓨터를 잘 몰라도 괜찮습니다. 같이 한 칸씩 갑니다. 오늘 끝나면 여러분
+            컴퓨터를 잘 몰라도 괜찮습니다. 저와 함께 하나씩 배워봅니다. 오늘 끝나면 여러분
             손으로 만든 보고서 한 편이 남습니다.
           </p>
 

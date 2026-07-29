@@ -1,10 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import {
   ChevronLeft,
   ChevronRight,
   Clock,
+  House,
   List,
   Maximize,
   Minimize,
@@ -50,6 +52,18 @@ export function Deck({ week }: { week: Week }) {
     },
     [],
   );
+
+  // 발표 화면 빠져나오기 — ESC 키와 화면 위 '나가기' 버튼이 함께 쓴다.
+  // 전체화면이 막힌 환경에서는 fullscreenElement 가 비어 있으므로,
+  // 전체화면 해제와 상태 해제를 따로 처리해야 확실히 빠져나온다.
+  const exitProjector = useCallback(async () => {
+    try {
+      if (document.fullscreenElement) await document.exitFullscreen();
+    } catch {
+      // 이미 전체화면이 아니면 무시하고 상태만 되돌린다
+    }
+    setProjector(false);
+  }, []);
 
   // 현재 슬라이드 추적 — 화면 한가운데를 지나는 장을 '현재'로 본다.
   useEffect(() => {
@@ -166,12 +180,14 @@ export function Deck({ week }: { week: Week }) {
         e.preventDefault();
         goTo(Math.max(current - 1, 0));
       } else if (e.key === "Escape") {
-        setTocOpen(false);
+        // 목차가 열려 있으면 목차부터, 아니면 발표 화면에서 빠져나온다.
+        if (tocOpen) setTocOpen(false);
+        else if (projector) exitProjector();
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [current, goTo, total]);
+  }, [current, goTo, total, tocOpen, projector, exitProjector]);
 
   // 덱만 전체화면으로 만들면 문서 스크롤과 어긋나 슬라이드가 잘린다.
   // 문서 전체를 전체화면으로 띄우고, 사이트 헤더는 CSS로 숨긴다.
@@ -209,6 +225,21 @@ export function Deck({ week }: { week: Week }) {
       }
       className={cn("bg-background pb-10", projector && "projector")}
     >
+      {/*
+        발표 화면 나가기 — 진행바는 스크롤하면 접히므로 여기에 따로 둔다.
+        평소엔 옅게 있다가 마우스를 올리면 진해져서 강의 화면을 방해하지 않는다.
+      */}
+      {projector && (
+        <button
+          type="button"
+          onClick={exitProjector}
+          className="fixed top-4 right-4 z-40 inline-flex h-12 items-center gap-2 rounded-xl border-2 border-border bg-background/90 px-4 text-base font-bold opacity-45 shadow-md backdrop-blur transition hover:opacity-100 focus-visible:opacity-100"
+        >
+          <Minimize className="size-5" aria-hidden />
+          발표 화면 끄기 (ESC)
+        </button>
+      )}
+
       {/* 상단 진행 바 — 헤더 바로 아래에 붙는다 */}
       <div
         ref={barRef}
@@ -218,6 +249,19 @@ export function Deck({ week }: { week: Week }) {
         )}
       >
         <div className="mx-auto flex w-full max-w-5xl items-center gap-2.5 px-4 py-2.5 sm:gap-3 sm:px-8">
+          {/*
+            사이트 헤더는 강의 페이지에서 스크롤되어 사라진다.
+            돌아갈 길이 없으면 안 되므로 처음 화면 버튼을 여기에 고정해 둔다.
+          */}
+          <Link
+            href="/"
+            title="처음 화면으로"
+            className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl border-2 border-border hover:bg-muted"
+          >
+            <House className="size-5" aria-hidden />
+            <span className="sr-only">처음 화면으로</span>
+          </Link>
+
           <div className="min-w-0 flex-1">
             <p className="truncate text-base font-bold">
               {week.week}주차 · {currentSlide?.nav ?? week.title}

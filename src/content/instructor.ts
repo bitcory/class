@@ -21,7 +21,7 @@ export const instructor = {
       desc: "전문 용어는 반드시 비유로 바꿔서 설명합니다. 모르는 단어가 나오면 그 자리에서 물어보세요.",
     },
     {
-      title: "같이 한 칸씩 갑니다",
+      title: "저와 함께 하나씩 배워봅니다.",
       desc: "새 화면이 나오면 먼저 시연하고, 다 같이 따라 한 뒤 다음으로 넘어갑니다.",
     },
     {
@@ -60,10 +60,6 @@ export const instructor = {
       text: "농협 · 동부캐피탈 · 웰컴저축은행 등 금융기관 영업·여신 실무",
     },
   ],
-  education: [
-    { school: "강원대학교", detail: "법학부 졸업", period: "1997 – 2001" },
-    { school: "춘천고등학교", detail: "인문계 졸업", period: "1994 – 1997" },
-  ],
   lectures: [
     "EBS 특강 — 경기영상고등학교 3학년 대상 영상 제작 강의",
     "기업·기관 강의 — AI 기초 입문 · 코딩 · 영상 제작",
@@ -84,16 +80,22 @@ export const instructor = {
   ],
   contact: [
     {
+      label: "수업 단톡방 들어가기",
+      value: "카카오톡 오픈채팅",
+      href: "https://open.kakao.com/o/gqDZndGi",
+      icon: "chat" as const,
+    },
+    {
       label: "이메일로 문의하기",
       value: "aitoolbee79@gmail.com",
       href: "mailto:aitoolbee79@gmail.com",
+      icon: "mail" as const,
     },
     {
       label: "아이크루 아카데미",
       value: "aicrew.rnpick.com",
       href: "https://aicrew.rnpick.com",
+      icon: "link" as const,
     },
-    // TODO: 단톡방 초대 링크로 교체
-    { label: "수업 단톡방", value: "수업 중 안내드립니다", href: "" },
   ],
 };

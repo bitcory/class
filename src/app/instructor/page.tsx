@@ -3,12 +3,17 @@ import Image from "next/image";
 import {
   Check,
   ExternalLink,
-  GraduationCap,
   Mail,
   MessageCircle,
   UserRound,
 } from "lucide-react";
 import { instructor } from "@/content/instructor";
+
+const CONTACT_ICON = {
+  chat: MessageCircle,
+  mail: Mail,
+  link: ExternalLink,
+} as const;
 
 export const metadata: Metadata = {
   title: "강사 소개",
@@ -103,24 +108,6 @@ export default function InstructorPage() {
             ))}
           </ul>
 
-          <h3 className="mt-8 flex items-center gap-2.5 text-xl font-bold">
-            <GraduationCap className="size-6 text-primary" aria-hidden />
-            학력
-          </h3>
-          <ul className="mt-4 space-y-2.5">
-            {instructor.education.map((e) => (
-              <li
-                key={e.school}
-                className="flex flex-col gap-1 text-lg sm:flex-row sm:items-baseline sm:gap-3"
-              >
-                <span className="font-bold">{e.school}</span>
-                <span className="text-muted-foreground">{e.detail}</span>
-                <span className="text-base text-muted-foreground sm:ml-auto">
-                  {e.period}
-                </span>
-              </li>
-            ))}
-          </ul>
         </section>
 
         <section>
@@ -162,8 +149,9 @@ export default function InstructorPage() {
           수업 중이든 끝난 뒤든 편하게 물어보세요. 사소한 질문일수록 좋습니다.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          {instructor.contact.map((c) =>
-            c.href ? (
+          {instructor.contact.map((c) => {
+            const Icon = CONTACT_ICON[c.icon];
+            return (
               <a
                 key={c.label}
                 href={c.href}
@@ -172,23 +160,11 @@ export default function InstructorPage() {
                   : {})}
                 className="inline-flex h-14 flex-1 items-center justify-center gap-2 rounded-xl bg-foreground px-5 text-lg font-semibold text-background hover:bg-foreground/90"
               >
-                {c.href.startsWith("mailto:") ? (
-                  <Mail className="size-5" aria-hidden />
-                ) : (
-                  <ExternalLink className="size-5" aria-hidden />
-                )}
+                <Icon className="size-5" aria-hidden />
                 {c.label}
               </a>
-            ) : (
-              <span
-                key={c.label}
-                className="inline-flex h-14 flex-1 items-center justify-center gap-2 rounded-xl border-2 border-border px-5 text-lg font-semibold text-muted-foreground"
-              >
-                <MessageCircle className="size-5" aria-hidden />
-                {c.label} · {c.value}
-              </span>
-            ),
-          )}
+            );
+          })}
         </div>
       </section>
     </div>
