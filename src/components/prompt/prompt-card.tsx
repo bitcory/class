@@ -36,9 +36,12 @@ function splitTemplate(template: string): Part[] {
 export function PromptCard({
   prompt,
   className,
+  scrollBody,
 }: {
   prompt: PromptItem;
   className?: string;
+  /** 본문이 길 때 늘어나지 않고 이 안에서만 스크롤되게 한다 */
+  scrollBody?: boolean;
 }) {
   const parts = useMemo(() => splitTemplate(prompt.template), [prompt.template]);
   const [values, setValues] = useState<Record<string, string>>(() => {
@@ -75,29 +78,42 @@ export function PromptCard({
         )}
 
         {/* 프롬프트 본문 — 노란 칸은 눌러서 수정 */}
-        <p className="text-xl leading-[1.9] font-medium whitespace-pre-line sm:text-[1.35rem]">
-          {parts.map((p, i) =>
-            p.type === "text" ? (
-              <span key={i}>{p.value}</span>
-            ) : (
-              <input
-                key={i}
-                type="text"
-                aria-label={`${p.value} 입력칸`}
-                value={values[p.value] ?? ""}
-                onChange={(e) =>
-                  setValues((v) => ({ ...v, [p.value]: e.target.value }))
-                }
-                style={{ width: inputWidth(values[p.value] ?? "") }}
-                className="mx-0.5 max-w-full rounded-md border-b-4 border-blank-border bg-blank px-1.5 py-0.5 text-center font-bold text-foreground focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
-              />
-            ),
+        <div
+          className={cn(
+            scrollBody &&
+              "max-h-[340px] overflow-y-auto rounded-xl border-2 border-border/60 bg-muted/20 px-4 py-3.5 sm:max-h-[400px]",
           )}
-        </p>
+        >
+          <p className="text-xl leading-[1.9] font-medium whitespace-pre-line sm:text-[1.35rem]">
+            {parts.map((p, i) =>
+              p.type === "text" ? (
+                <span key={i}>{p.value}</span>
+              ) : (
+                <input
+                  key={i}
+                  type="text"
+                  aria-label={`${p.value} 입력칸`}
+                  value={values[p.value] ?? ""}
+                  onChange={(e) =>
+                    setValues((v) => ({ ...v, [p.value]: e.target.value }))
+                  }
+                  style={{ width: inputWidth(values[p.value] ?? "") }}
+                  className="mx-0.5 max-w-full rounded-md border-b-4 border-blank-border bg-blank px-1.5 py-0.5 text-center font-bold text-foreground focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40"
+                />
+              ),
+            )}
+          </p>
 
-        {hasBlanks && (
-          <p className="mt-3 text-base text-muted-foreground">
-            노란 칸을 눌러 원하는 내용으로 바꿀 수 있습니다.
+          {hasBlanks && (
+            <p className="mt-3 text-base text-muted-foreground">
+              노란 칸을 눌러 원하는 내용으로 바꿀 수 있습니다.
+            </p>
+          )}
+        </div>
+
+        {scrollBody && (
+          <p className="mt-2 text-sm text-muted-foreground">
+            ▲ 위 상자 안에서 손가락으로 밀어 나머지 내용을 볼 수 있습니다.
           </p>
         )}
 

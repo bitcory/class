@@ -235,7 +235,7 @@ export function PhotoPromptSlide({ slide }: { slide: Of<"photo-prompt"> }) {
           )}
         </figure>
 
-        <PromptCard prompt={slide.prompt} />
+        <PromptCard prompt={slide.prompt} scrollBody />
       </div>
     </div>
   );
