@@ -256,7 +256,7 @@ export const week1: Week = {
       tone: "concept",
       type: "analogy",
       title: "도구가 왜 여러 개일까요?",
-      lead: "식당도 한식··일식이 있듯, AI도 저마다 잘하는 게 다릅니다.",
+      lead: "식당도 한식·중식·일식이 있듯, AI도 저마다 잘하는 게 다릅니다.",
       pairs: [
         {
           term: "한식·중식·일식",
