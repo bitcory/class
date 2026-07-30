@@ -158,7 +158,7 @@ export default function InstructorPage() {
                 {...(c.href.startsWith("http")
                   ? { target: "_blank", rel: "noreferrer" }
                   : {})}
-                className="inline-flex h-14 flex-1 items-center justify-center gap-2 rounded-xl bg-foreground px-5 text-lg font-semibold text-background hover:bg-foreground/90"
+                className={`inline-flex h-14 flex-1 items-center justify-center gap-2 rounded-xl px-5 text-lg font-semibold transition-colors ${c.className}`}
               >
                 <Icon className="size-5" aria-hidden />
                 {c.label}

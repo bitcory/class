@@ -101,7 +101,29 @@ export type Slide = SlideBase &
           good: string;
           say: string;
           note?: string;
+          /** 있으면 이름을 눌렀을 때 이 주소로 새 탭에서 이동한다 */
+          url?: string;
         }[];
+      }
+    | {
+        /** 다양한 AI 도구를 아이콘 뱃지 카드로 보여주는 갤러리 */
+        type: "toolkit";
+        title: string;
+        lead?: string;
+        items: {
+          name: string;
+          /** 이 도구가 속한 생성형 AI 분야 */
+          group: "LLM" | "이미지 생성" | "영상 생성" | "음악 생성";
+          /** 뱃지 안에 넣을 짧은 글자 (2~3자) — logo가 없을 때 대신 표시 */
+          icon: string;
+          category: string;
+          blurb: string;
+          /** 뱃지 배경색 — tailwind bg-* 클래스 (logo가 없을 때 사용) */
+          color: string;
+          /** public/ 아래 로고 이미지 경로. 있으면 icon/color 대신 이 이미지를 보여준다 */
+          logo?: string;
+        }[];
+        footer?: string;
       }
     | {
         type: "steps";

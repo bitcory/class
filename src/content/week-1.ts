@@ -7,8 +7,8 @@ export const week1: Week = {
   week: 1,
   title: "AI와 처음 만나기",
   summary:
-    "AI가 무엇인지 감을 잡고, ChatGPT에 가입해서, 오늘 안에 보고서 한 편을 만들어 봅니다.",
-  duration: "3시간 (180분)",
+    "AI가 무엇인지 감을 잡고, 챗지피티에 가입해서, 오늘 안에 보고서 한 편을 만들어 봅니다.",
+  duration: "3시간 30분 (210분)",
   status: "ready",
   slides: [
     {
@@ -25,7 +25,7 @@ export const week1: Week = {
         time: "0~10분",
         say: [
           "여러분, AI 어렵지 않습니다. 오늘 딱 하나만 기억하세요 — AI는 '말이 통하는 아주 똑똑한 조수'입니다.",
-          "컴퓨터 잘 몰라도 됩니다. 말만 걸 줄 알면 돼요.  손으로 보고서 한 편이 만들어져 있을 겁니다.",
+          "컴퓨터 잘 몰라도 됩니다. 말만 걸 줄 알면 돼요. 오늘 끝나면 여러분 손으로 보고서 한 편이 만들어져 있을 겁니다.",
           "그리고 오늘 배우는 건 손주 자랑거리가 아니라, 여러분 논문과 실무에 진짜 쓰는 도구입니다.",
         ],
         tip: [
@@ -51,22 +51,22 @@ export const week1: Week = {
         {
           era: "그다음",
           title: "애니콜, 접는 폴더폰",
-          desc: "전화와 문자가 전부였습니다. 그마저도 처음엔 어려웠죠.",
+          desc: "전화와 문자가 전부였습니다.\n그마저도 처음엔 어려웠죠.",
         },
         {
           era: "지금",
           title: "스마트폰",
-          desc: "카카오톡도 하시고 유튜브도 보십니다. 어느새 익숙해졌습니다.",
+          desc: "카카오톡도 하시고 유튜브도 보십니다. \n어느새 익숙해졌습니다.",
         },
         {
           era: "이제",
           title: "AI",
-          desc: "다음 차례는 이것 하나뿐입니다. 오늘부터 같이 배우면 됩니다.",
+          desc: "다음 차례는 이것 하나뿐입니다. \n오늘부터 같이 배우시면 됩니다.",
           highlight: true,
         },
       ],
       quote:
-        "처음 스마트폰을 사드렸을 때 아버지는 \"불편하고 답답해서 안 쓴다\"고 하셨습니다. 그런데 지금은 AI와 대화하시고, 사진도 만드시고, 영상도 만드십니다.",
+        "처음 스마트폰을 사드렸을 때 아버지는 \"불편하고 답답해서 안 쓴다\"고 하셨습니다. \n그런데 지금은 AI와 대화하시고, 사진도 만드시고, 영상도 만드십니다.",
       point:
         "스마트폰도 처음엔 다 어려웠지만 지금은 잘 쓰시죠? AI도 똑같습니다.",
       notes: {
@@ -90,11 +90,11 @@ export const week1: Week = {
       nav: "이렇게 가르칩니다",
       tone: "concept",
       type: "gallery",
-      title: "이미 330분이 이렇게 배우고 계십니다",
+      title: "이미 342분이 이렇게 배우고 계십니다",
       lead:
-        "저는 'AI크루' 아카데미를 운영하며, 보조강사 4명과 함께 330명의 수강생을 직접 가르치고 있습니다. EBS에서 경기영상고 학생들도 만났습니다.",
+        "저는 'AICREW' 아카데미를 운영하며, 보조강사 4명과 함께 342명의 수강생을 직접 가르치고 있습니다. EBS에서 경기영상고 학생들도 가르쳤습니다.",
       stats: [
-        { value: "330명", label: "직접 가르치고 있는 수강생" },
+        { value: "342명", label: "직접 가르치고 있는 수강생" },
         { value: "4명", label: "함께하는 보조강사" },
         { value: "EBS", label: "경기영상고 3학년 특강 진행" },
       ],
@@ -107,7 +107,7 @@ export const week1: Week = {
         {
           src: "/moments/class-roundtable.jpg",
           alt: "수강생들이 노트북으로 영상 편집을 실습하는 모습",
-          caption: "AI크루 아카데미 · 영상 편집 실습 시간",
+          caption: "AICREW 아카데미 · 영상 편집 실습 시간",
         },
         {
           src: "/moments/class-studyroom.jpg",
@@ -121,13 +121,13 @@ export const week1: Week = {
         },
       ],
       footer:
-        "그러니 \"이거 어렵겠다\" 걱정은 내려놓으셔도 됩니다. 제가 끝까지 쉽게 안내해 드릴게요.",
+        "그러니 \"이거 어렵겠다\" 걱정은 내려놓으셔도 됩니다.",
       notes: {
         time: "0~10분",
         say: [
-          "현재 저는 'AI크루'라는 AI 아카데미를 운영하고 있습니다.",
-          "EBS에서 경기영상고 학생들을 강의했고, 현재 보조강사 4명과 함께 330명의 수강생을 직접 가르치고 있습니다.",
-          "그러니 \"이거 어렵겠다\" 걱정은 내려놓으셔도 됩니다. 제가 끝까지 쉽게 안내해 드릴게요.",
+          "현재 저는 'AICREW'라는 AI 아카데미를 운영하고 있습니다.",
+          "EBS에서 경기영상고 학생들을 강의했고, 현재 보조강사 4명과 함께 342명의 수강생을 직접 가르치고 있습니다.",
+          "그러니 \"이거 어렵겠다\" 걱정은 내려놓으셔도 됩니다.",
           "이제 여러분은 저와 함께, 사회복지 실무와 여러분의 일상에서 AI로 시간을 아끼고 더 잘 해내는 법을 하나씩 익혀 나가실 겁니다. 자, 그럼 지금부터 시작하겠습니다.",
         ],
         tip: [
@@ -141,20 +141,20 @@ export const week1: Week = {
       nav: "오늘의 목표",
       tone: "concept",
       type: "goal",
-      title: "오늘 끝나면 이렇게 됩니다",
+      title: "오늘 이후에 여러분은 이렇게 변합니다.",
       lead: "세 가지만 하면 오늘은 성공입니다.",
       items: [
         {
-          text: "AI가 무엇인지 감이 잡힙니다",
-          sub: "원리를 어려운 말 없이, 비유로 이해합니다.",
+          text: "AI가 무엇인지 감을 잡습니다.",
+          sub: "원리를 어려운 말 없이, 머리로 이해합니다.",
         },
         {
-          text: "도구 네 가지를 구분할 수 있습니다",
-          sub: "ChatGPT · Gemini · Claude · NotebookLM이 뭘 잘하는지 압니다.",
+          text: "실제 많이 활용되는 도구 4가지를 배워봅니다.",
+          sub: "챗지피티 · 제미나이 · 클로드 · 노트북LM",
         },
         {
-          text: "AI로 보고서를 한 편 만듭니다",
-          sub: "직접 가입하고, 직접 물어보고, 직접 결과물을 손에 넣습니다.",
+          text: "AI로 보고서를 한 편 만들어 봅니다.",
+          sub: "여러분이 직접 생각하고, 물어보고, 결과물을 만들어냅니다.",
         },
       ],
       notes: {
@@ -173,10 +173,10 @@ export const week1: Week = {
       title: "AI는 '말이 통하는 아주 똑똑한 조수'",
       lead: "오늘 딱 하나만 기억하시면 됩니다.",
       body: [
-        "컴퓨터를 잘 몰라도 괜찮습니다. 말만 걸 줄 알면 됩니다.",
-        "스마트폰으로 검색해 보신 적 있으시죠? 그것보다 쉽습니다. 검색은 단어를 넣지만, AI는 그냥 말을 걸면 됩니다.",
+        "컴퓨터는 잘 모르셔도 괜찮습니다. 말만 잘 걸어주면 됩니다.",
+        "스마트폰으로 검색해 보신 적 있으시죠? 그것보다 쉽습니다.\n검색은 단어를 넣지만, AI는 그냥 말을 걸면 됩니다.",
       ],
-      quote: "\" 손으로 보고서 한 편이 만들어져 있을 겁니다.\"",
+      quote: "\"오늘 이후 여러분이 직접 만드신 AI결과물을 보실 수 있습니다.\"",
       notes: {
         time: "10~30분",
         say: [
@@ -193,8 +193,8 @@ export const week1: Week = {
       lead: "어려운 영어 단어지만, 뜻은 아주 단순합니다.",
       pairs: [
         {
-          term: "LLM",
-          means: "엄청나게 많은 책을 읽은 사람",
+          term: "L . L . M",
+          means: "(Large Language Model) - 엄청나게 많은 책을 읽은 사람",
           caption:
             "인터넷의 방대한 글을 학습해서, 다음에 올 말을 예측하며 문장을 만들어 냅니다.",
         },
@@ -256,7 +256,7 @@ export const week1: Week = {
       tone: "concept",
       type: "analogy",
       title: "도구가 왜 여러 개일까요?",
-      lead: "식당도 한식·중식·일식이 있듯, AI도 저마다 잘하는 게 다릅니다.",
+      lead: "식당도 한식··일식이 있듯, AI도 저마다 잘하는 게 다릅니다.",
       pairs: [
         {
           term: "한식·중식·일식",
@@ -277,32 +277,161 @@ export const week1: Week = {
       },
     },
     {
+      id: "toolkit",
+      nav: "다양한 도구들",
+      tone: "concept",
+      type: "toolkit",
+      title: "이렇게 다양한 도구들이 있어요",
+      lead: "다 몰라도 됩니다. 필요할 때 하나씩 알아가면 됩니다.",
+      items: [
+        {
+          name: "챗지피티",
+          group: "LLM",
+          icon: "GPT",
+          category: "대화·글쓰기",
+          blurb: "가장 만능인 조수입니다.",
+          color: "bg-emerald-600",
+          logo: "https://www.google.com/s2/favicons?domain=chatgpt.com&sz=128",
+        },
+        {
+          name: "제미나이",
+          group: "LLM",
+          icon: "Gem",
+          category: "구글 연동",
+          blurb: "검색·메일·문서에 강합니다.",
+          color: "bg-blue-500",
+          logo: "https://www.gstatic.com/lamda/images/gemini_sparkle_aurora_33f86dc0c0257da337c63.svg",
+        },
+        {
+          name: "클로드",
+          group: "LLM",
+          icon: "Cl",
+          category: "긴 글 분석",
+          blurb: "논문처럼 긴 글을 차분히 읽고 씁니다.",
+          color: "bg-orange-500",
+          logo: "https://www.google.com/s2/favicons?domain=claude.ai&sz=128",
+        },
+        {
+          name: "미드저니",
+          group: "이미지 생성",
+          icon: "Mj",
+          category: "예술 이미지",
+          blurb: "완성도 높은 이미지를 만듭니다.",
+          color: "bg-neutral-900",
+          logo: "https://www.google.com/s2/favicons?domain=midjourney.com&sz=128",
+        },
+        {
+          name: "챗지피티",
+          group: "이미지 생성",
+          icon: "GPT",
+          category: "대화형 이미지",
+          blurb: "대화하면서 이미지를 만들고 수정합니다.",
+          color: "bg-emerald-600",
+          logo: "https://www.google.com/s2/favicons?domain=chatgpt.com&sz=128",
+        },
+        {
+          name: "FLOW",
+          group: "이미지 생성",
+          icon: "Fl",
+          category: "장면 이미지",
+          blurb: "장면을 만들고 영상으로 이어갑니다.",
+          color: "bg-blue-600",
+          logo: "https://www.google.com/s2/favicons?domain=labs.google&sz=128",
+        },
+        {
+          name: "클링",
+          group: "영상 생성",
+          icon: "Kl",
+          category: "영상 생성",
+          blurb: "글자를 짧은 동영상으로 만들어 줍니다.",
+          color: "bg-violet-500",
+          logo: "https://s16-kling.klingai.com/kos/s101/nlav112918/kling-homepage-aio/logo-180x180.png",
+        },
+        {
+          name: "드리미나",
+          group: "영상 생성",
+          icon: "Dr",
+          category: "이미지·영상",
+          blurb: "사진과 영상을 그림처럼 그려 줍니다.",
+          color: "bg-rose-500",
+          logo: "https://p16-seeyou-sg.ibyteimg.com/tos-alisg-i-2zwwjm3azk-sg/40fed40e0bd1411292155e446a0f3a30~tplv-2zwwjm3azk-compress:q90.image",
+        },
+        {
+          name: "런웨이",
+          group: "영상 생성",
+          icon: "Rw",
+          category: "영상 편집·생성",
+          blurb: "AI로 영상을 만들고 편집합니다.",
+          color: "bg-green-600",
+          logo: "https://www.google.com/s2/favicons?domain=runwayml.com&sz=128",
+        },
+        {
+          name: "수노",
+          group: "음악 생성",
+          icon: "Su",
+          category: "음악 생성",
+          blurb: "가사만 주면 노래를 만들어 줍니다.",
+          color: "bg-neutral-800",
+          logo: "https://cdn-o.suno.com/favicon-512x512.png",
+        },
+        {
+          name: "유디오",
+          group: "음악 생성",
+          icon: "Ud",
+          category: "노래 생성",
+          blurb: "설명만으로 음악을 만듭니다.",
+          color: "bg-purple-600",
+          logo: "https://www.google.com/s2/favicons?domain=udio.com&sz=128",
+        },
+        {
+          name: "일레븐랩스",
+          group: "음악 생성",
+          icon: "11",
+          category: "음성·효과음",
+          blurb: "목소리와 효과음을 생성합니다.",
+          color: "bg-neutral-900",
+          logo: "https://www.google.com/s2/favicons?domain=elevenlabs.io&sz=128",
+        },
+      ],
+      footer: "겁먹지 마세요. 오늘은 이 중 '챗지피티' 하나만 제대로 배웁니다.",
+      notes: {
+        time: "30~60분",
+        say: [
+          "요즘은 대화형 AI 말고도 슬라이드를 만들어주는 도구, 영상을 만들어주는 도구, 노래까지 만들어주는 도구가 있습니다.",
+          "다 알 필요 없습니다. 필요할 때 이름만 검색해서 하나씩 배우시면 됩니다. 오늘은 가장 기본인 챗지피티부터 갑니다.",
+        ],
+        tip: [
+          "이름을 다 외우게 하지 말 것. '이렇게 많다'는 인상만 주고 바로 다음 장(4가지 비교)으로 넘어갑니다.",
+        ],
+      },
+    },
+    {
       id: "tools",
       nav: "도구 4가지 비교",
       tone: "concept",
       type: "compare",
       title: "도구 4가지, 뭘 잘하나요?",
-      lead: "이름과 역할만 기억하시면 됩니다. 오늘 쓰는 건 ChatGPT 하나입니다.",
+      lead: "이름과 역할만 기억하시면 됩니다. 오늘 쓰는 건 챗지피티 하나입니다.",
       tools: [
         {
-          name: "ChatGPT",
+          name: "챗지피티",
           good: "대화·글쓰기의 기본. 이미지도 만들어 줍니다.",
           say: "가장 만능인 조수. 질문·글쓰기·보고서에 두루 쓰고, 이미지도 '글자까지' 잘 만들어요.",
           note: "오늘 우리가 씁니다",
         },
         {
-          name: "Gemini",
+          name: "제미나이",
           good: "구글 연동. 검색·Gmail·문서·대용량 자료.",
           say: "구글을 많이 쓰시면 편해요. 검색·메일·긴 문서 정리에 강합니다.",
         },
         {
-          name: "Claude",
+          name: "클로드",
           good: "긴 문서 이해·정교한 글쓰기·문헌 분석.",
           say: "글을 차분하고 깊게 씁니다. 긴 논문·자료 읽고 분석하는 데 강해요.",
           note: "이미지 생성은 안 됩니다",
         },
         {
-          name: "NotebookLM",
+          name: "노트북LM",
           good: "내 자료(PDF)만 근거로 요약·인용. 연구에 특화.",
           say: "내가 올린 논문 안에서만 답합니다. 그래서 '없는 내용'을 덜 지어내요.",
           note: "2주차 핵심 도구",
@@ -320,16 +449,16 @@ export const week1: Week = {
       type: "summary",
       title: "이 네 줄만 외우세요",
       lines: [
-        { label: "글 · 보고서 · 이미지", value: "ChatGPT" },
-        { label: "구글 연동 · 검색", value: "Gemini" },
-        { label: "긴 글 · 분석", value: "Claude" },
-        { label: "내 자료 연구", value: "NotebookLM" },
+        { label: "글 · 보고서 · 이미지", value: "챗지피티" },
+        { label: "구글 연동 · 검색", value: "제미나이" },
+        { label: "긴 글 · 분석", value: "클로드" },
+        { label: "내 자료 연구", value: "노트북LM" },
       ],
-      footer: "오늘은 ChatGPT로 시작합니다. 나머지는 이름과 역할만 기억하세요.",
+      footer: "오늘은 챗지피티로 시작합니다. 나머지는 이름과 역할만 기억하세요.",
       notes: {
         time: "30~60분",
         say: [
-          "오늘은 ChatGPT로 시작합니다. 나머지는 이름과 역할만 기억하세요.",
+          "오늘은 챗지피티로 시작합니다. 나머지는 이름과 역할만 기억하세요.",
         ],
       },
     },
@@ -378,7 +507,7 @@ export const week1: Week = {
       tone: "practice",
       type: "prompt",
       title: "첫 대화를 걸어봅시다",
-      lead: "아래 '복사하기'를 누르고, ChatGPT 입력창에 붙여넣고, 보내기만 하면 됩니다.",
+      lead: "아래 '복사하기'를 누르고, 챗지피티 입력창에 붙여넣고, 보내기만 하면 됩니다.",
       prompts: [
         {
           id: "w1-intro",
@@ -505,6 +634,88 @@ export const week1: Week = {
       },
     },
     {
+      id: "paper-db",
+      nav: "논문 DB 검색",
+      tone: "practice",
+      type: "compare",
+      title: "논문은 여기서 찾습니다",
+      lead: "학교 도서관 사이트에서도 연결됩니다. 이름만 기억해 두세요.",
+      tools: [
+        {
+          name: "RISS",
+          good: "학위논문 + 학술지를 한 번에 검색",
+          say: "가장 먼저 검색해 보시면 됩니다. 국내 논문 대부분이 여기 있습니다.",
+          note: "오늘 우리가 씁니다",
+          url: "https://www.riss.kr",
+        },
+        {
+          name: "DBpia",
+          good: "국내 학회지 논문 원문 제공",
+          say: "학회에서 낸 논문을 찾을 때 강합니다.",
+          url: "https://www.dbpia.co.kr",
+        },
+        {
+          name: "KISS",
+          good: "한국학술정보 학술지 검색",
+          say: "RISS·DBpia에 없는 논문이 있을 때 확인해 보세요.",
+          url: "https://kiss.kstudy.com",
+        },
+        {
+          name: "KCI",
+          good: "등재지 여부 확인",
+          say: "이 논문이 믿을 만한 학술지에 실렸는지 확인할 때 씁니다.",
+          url: "https://www.kci.go.kr",
+        },
+      ],
+      notes: {
+        time: "155~170분",
+        say: [
+          "오늘부터는 AI 없이, 우리가 직접 논문을 찾아보는 연습을 합니다.",
+          "국내 논문은 RISS에서 대부분 찾을 수 있습니다. 학위논문이든 학술지 논문이든 여기서 검색이 됩니다.",
+          "DBpia·KISS·KCI는 RISS에 없을 때, 또는 이 논문이 믿을 만한지 확인할 때 씁니다.",
+        ],
+        tip: [
+          "화면을 공유해 RISS 검색창에 직접 검색어를 쳐서 결과가 뜨는 걸 보여주면 좋습니다.",
+          "사회복지 연구는 클라이언트·취약계층 정보를 다루므로, AI에 실제 사례를 그대로 붙여넣지 않도록 미리 짚어줍니다.",
+        ],
+      },
+    },
+    {
+      id: "topic-homework",
+      nav: "주제 정하기 · 숙제",
+      tone: "practice",
+      type: "steps",
+      title: "오늘의 주제를 정하고, 다음 주까지 이걸 해옵니다",
+      lead: "다음 주에는 이 주제로 AI 검색을 해봅니다. 그 전에 먼저 손으로 찾아보는 연습입니다.",
+      storageKey: "week1-topic-homework",
+      steps: [
+        {
+          label: "관심 있는 사회복지 주제를 한 줄로 정합니다",
+          detail:
+            "예: \"치매노인 돌봄자 소진\", \"청소년 자립준비청년 지원정책\"처럼 구체적으로 적어보세요.",
+        },
+        {
+          label: "RISS나 DBpia에서 그 주제로 직접 검색해 봅니다",
+          detail: "AI 없이 검색어만으로 찾는 연습입니다. 오늘 배운 이름을 그대로 써 보시면 됩니다.",
+        },
+        {
+          label: "[숙제] 다음 주까지 관련 논문 5편을 찾아 목록으로 정리해 옵니다",
+          detail: "제목만 적어 와도 됩니다. 다음 주에 AI로 검색한 결과와 직접 비교해 봅니다.",
+        },
+      ],
+      notes: {
+        time: "170~190분",
+        say: [
+          "오늘 정한 주제는 다음 주까지 그대로 가져갑니다. 이번 주엔 손으로, 다음 주엔 AI로 같은 주제를 검색해서 차이를 비교할 겁니다.",
+          "숙제는 논문 5편 찾아오기입니다. 원문을 다 읽어올 필요는 없고, 제목과 저자만 정리해 오시면 됩니다.",
+        ],
+        tip: [
+          "주제가 너무 넓으면 옆에서 좁혀주세요. \"노인복지\" 보다는 \"치매노인 돌봄자 소진\"처럼요.",
+          "숙제를 어려워하면 '검색해서 5개 목록만 캡처해 와도 된다'고 부담을 낮춰 주세요.",
+        ],
+      },
+    },
+    {
       id: "wrap-up",
       nav: "오늘 정리 · 다음 주",
       tone: "done",
@@ -513,25 +724,30 @@ export const week1: Week = {
       lead: "첫날에 이 정도면 훌륭합니다.",
       done: [
         "AI가 무엇인지 이해했습니다",
-        "ChatGPT에 가입하고 첫 대화를 나눴습니다",
+        "챗지피티에 가입하고 첫 대화를 나눴습니다",
         "좋은 질문의 3가지 비밀을 배웠습니다",
         "보고서를 한 편 만들었습니다",
+        "논문 검색 DB(RISS 등)를 알아보고 오늘의 주제를 정했습니다",
       ],
       preview: {
         title: "2주차 — 자료 모으기와 검증하기",
-        desc: "AI로 진짜 논문 자료를 모으고, 그게 진짜인지 확인하는 법을 배웁니다. AI를 연구 조수로 쓰는 진짜 기술이에요.",
+        desc: "오늘 손으로 찾은 논문과 비교하며, AI로 진짜 논문 자료를 모으고 그게 진짜인지 확인하는 법을 배웁니다. AI를 연구 조수로 쓰는 진짜 기술이에요.",
       },
       reminders: [
         "오늘 만든 보고서는 저장하거나 화면을 캡처해 두세요.",
+        "다음 주까지 오늘 정한 주제로 논문 5편을 찾아 목록으로 정리해 오세요.",
         "궁금한 점은 단톡방에 편하게 올려 주세요.",
       ],
       notes: {
-        time: "155~180분",
+        time: "190~210분",
         say: [
-          "오늘 여러분은 AI가 뭔지 이해했고, 가입했고, 보고서를 한 편 만들었습니다. 첫날에 이 정도면 훌륭합니다.",
-          "다음 시간엔 AI로 '진짜 논문 자료를 모으고, 그게 진짜인지 검증하는 법'을 배웁니다.",
+          "오늘 여러분은 AI가 뭔지 이해했고, 가입했고, 보고서를 한 편 만들었고, 논문 검색 DB까지 알아봤습니다. 첫날에 이 정도면 훌륭합니다.",
+          "다음 시간엔 오늘 손으로 찾은 논문과 비교하며, AI로 '진짜 논문 자료를 모으고, 그게 진짜인지 검증하는 법'을 배웁니다.",
         ],
-        tip: ["오늘 만든 보고서를 저장·캡처하도록 꼭 안내합니다."],
+        tip: [
+          "오늘 만든 보고서를 저장·캡처하도록 꼭 안내합니다.",
+          "숙제(논문 5편 찾기)를 다시 한번 짚어주고 마칩니다.",
+        ],
       },
     },
   ],

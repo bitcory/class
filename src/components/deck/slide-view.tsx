@@ -8,6 +8,7 @@ import {
   NextSlide,
   PointSlide,
   SummarySlide,
+  ToolkitSlide,
   WarningSlide,
 } from "@/components/deck/slides/basic";
 import {
@@ -41,6 +42,7 @@ export function SlideView({
       {slide.type === "analogy" && <AnalogySlide slide={slide} />}
       {slide.type === "warning" && <WarningSlide slide={slide} />}
       {slide.type === "compare" && <CompareSlide slide={slide} />}
+      {slide.type === "toolkit" && <ToolkitSlide slide={slide} />}
       {slide.type === "steps" && <StepsSlide slide={slide} />}
       {slide.type === "prompt" && <PromptSlide slide={slide} />}
       {slide.type === "rules" && <RulesSlide slide={slide} />}

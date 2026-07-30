@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Check, ThumbsDown, ThumbsUp } from "lucide-react";
+import { Check, ExternalLink, ThumbsDown, ThumbsUp } from "lucide-react";
 import { PromptCard } from "@/components/prompt/prompt-card";
+import { HighlightText } from "@/components/deck/highlight-text";
 import type { Slide } from "@/lib/deck-types";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +16,9 @@ const MEASURE = "max-w-3xl";
 export function CompareSlide({ slide }: { slide: Of<"compare"> }) {
   return (
     <div>
-      <h2 className={H2}>{slide.title}</h2>
+      <h2 className={H2}>
+        <HighlightText text={slide.title} match="4가지" />
+      </h2>
       {slide.lead && (
         <p className={`mt-4 ${MEASURE} ${LEAD} text-muted-foreground`}>{slide.lead}</p>
       )}
@@ -25,9 +28,21 @@ export function CompareSlide({ slide }: { slide: Of<"compare"> }) {
         {slide.tools.map((t) => (
           <div key={t.name} className="rounded-2xl border-2 border-border p-5">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-2xl font-black tracking-tight">
-                {t.name}
-              </span>
+              {t.url ? (
+                <a
+                  href={t.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-2xl font-black tracking-tight text-primary underline decoration-2 underline-offset-4"
+                >
+                  {t.name}
+                  <ExternalLink className="size-5 shrink-0" aria-hidden />
+                </a>
+              ) : (
+                <span className="text-2xl font-black tracking-tight">
+                  {t.name}
+                </span>
+              )}
               {t.note && (
                 <span className="rounded-lg bg-primary/12 px-2.5 py-1 text-sm font-bold whitespace-nowrap text-primary">
                   {t.note}
@@ -54,9 +69,21 @@ export function CompareSlide({ slide }: { slide: Of<"compare"> }) {
             {slide.tools.map((t) => (
               <tr key={t.name} className="align-top">
                 <td className="px-5 py-4">
-                  <span className="text-xl font-black tracking-tight">
-                    {t.name}
-                  </span>
+                  {t.url ? (
+                    <a
+                      href={t.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-xl font-black tracking-tight text-primary underline decoration-2 underline-offset-4"
+                    >
+                      {t.name}
+                      <ExternalLink className="size-4 shrink-0" aria-hidden />
+                    </a>
+                  ) : (
+                    <span className="text-xl font-black tracking-tight">
+                      {t.name}
+                    </span>
+                  )}
                   {t.note && (
                     <span className="mt-2 inline-block rounded-lg bg-primary/12 px-2.5 py-1 text-sm font-bold whitespace-nowrap text-primary">
                       {t.note}

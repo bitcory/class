@@ -42,7 +42,7 @@ export function StorySlide({ slide }: { slide: Of<"story"> }) {
             <span className="mt-1.5 block text-xl font-bold sm:text-2xl">
               {s.title}
             </span>
-            <span className="mt-2 block text-lg text-muted-foreground sm:text-xl">
+            <span className="mt-2 block text-lg whitespace-pre-line text-muted-foreground sm:text-xl">
               {s.desc}
             </span>
           </li>
@@ -50,7 +50,7 @@ export function StorySlide({ slide }: { slide: Of<"story"> }) {
       </ol>
 
       {slide.quote && (
-        <p className="mt-6 flex gap-3 rounded-2xl bg-muted px-5 py-5 text-lg font-semibold sm:text-xl">
+        <p className="mt-6 flex gap-3 rounded-2xl bg-muted px-5 py-5 text-lg font-semibold whitespace-pre-line sm:text-xl">
           <Quote className="size-6 shrink-0 text-primary" aria-hidden />
           {slide.quote}
         </p>

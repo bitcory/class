@@ -46,8 +46,11 @@ export default function HomePage() {
             <span className="text-primary">말만 걸 줄 알면</span> 됩니다.
           </h1>
           <p className="mt-7 max-w-3xl text-xl leading-relaxed text-muted-foreground sm:text-2xl">
-            컴퓨터를 잘 몰라도 괜찮습니다. 저와 함께 하나씩 배워봅니다. 오늘 끝나면 여러분
-            손으로 만든 보고서 한 편이 남습니다.
+            컴퓨터를 잘 몰라도 괜찮습니다. 
+            <br />
+            저와 함께 하나씩 배워보겠습니다.
+            <br />
+            오늘 이후에 여러분은 AI와 친구가 되리라 확신합니다.
           </p>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
@@ -71,7 +74,7 @@ export default function HomePage() {
             {course.target}
           </p>
           <p className="mt-3 text-base text-muted-foreground">
-            EBS 특강 · AI크루 아카데미 수강생 330명과 함께해 온 강사가 진행합니다.
+            EBS 특강 · AICREW 아카데미 수강생 342명을 가르치고 있습니다.
           </p>
         </div>
       </section>
@@ -93,7 +96,7 @@ export default function HomePage() {
                   {i + 1}
                 </span>
                 <span className="mt-4 block text-xl font-bold">{p.title}</span>
-                <span className="mt-1.5 block text-lg text-muted-foreground">
+                <span className="mt-1.5 block text-lg whitespace-pre-line text-muted-foreground">
                   {p.desc}
                 </span>
               </li>
@@ -128,7 +131,7 @@ export default function HomePage() {
                         </span>
                         {ready ? (
                           <span className="rounded-lg bg-primary px-2.5 py-1 text-sm font-bold text-primary-foreground">
-                            지금 볼 수 있어요
+                            지금 볼 수 있습니다.
                           </span>
                         ) : (
                           <span className="rounded-lg bg-muted px-2.5 py-1 text-sm font-bold text-muted-foreground">

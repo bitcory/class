@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, Check, CircleAlert, Quote } from "lucide-react";
+import { HighlightText, MultiHighlightText } from "@/components/deck/highlight-text";
 import type { Slide } from "@/lib/deck-types";
 
 type Of<T extends Slide["type"]> = Extract<Slide, { type: T }>;
@@ -91,7 +92,7 @@ export function PointSlide({ slide }: { slide: Of<"point"> }) {
                 className="mt-3 size-2.5 shrink-0 rounded-full bg-primary"
                 aria-hidden
               />
-              <span>{b}</span>
+              <span className="whitespace-pre-line">{b}</span>
             </li>
           ))}
         </ul>
@@ -118,7 +119,18 @@ export function AnalogySlide({ slide }: { slide: Of<"analogy"> }) {
           <div key={i} className="rounded-2xl border-2 border-border p-5 sm:p-6">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <span className="rounded-xl bg-foreground px-4 py-2 text-center text-xl font-black text-background sm:text-2xl">
-                {p.term}
+                {p.term === "한식·중식·일식" ? (
+                  <MultiHighlightText
+                    text={p.term}
+                    matches={[
+                      { match: "한식", className: "text-orange-500" },
+                      { match: "중식", className: "text-red-500" },
+                      { match: "일식", className: "text-green-500" },
+                    ]}
+                  />
+                ) : (
+                  p.term
+                )}
               </span>
               <ArrowRight
                 className="size-6 rotate-90 self-center text-muted-foreground sm:rotate-0"
@@ -132,6 +144,59 @@ export function AnalogySlide({ slide }: { slide: Of<"analogy"> }) {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+export function ToolkitSlide({ slide }: { slide: Of<"toolkit"> }) {
+  const groups = ["LLM", "이미지 생성", "영상 생성", "음악 생성"] as const;
+
+  return (
+    <div>
+      <h2 className={H2}>{slide.title}</h2>
+      {slide.lead && (
+        <p className={`mt-4 ${MEASURE} ${LEAD} text-muted-foreground`}>{slide.lead}</p>
+      )}
+      <div className="mt-6 grid gap-4 lg:grid-cols-2">
+        {groups.map((group, groupIndex) => (
+          <section key={group} className="rounded-2xl border-2 border-border p-4 sm:p-5">
+            <div className="flex items-center gap-3">
+              <span className="flex size-8 items-center justify-center rounded-full bg-primary text-sm font-black text-primary-foreground">
+                {groupIndex + 1}
+              </span>
+              <h3 className="text-xl font-black sm:text-2xl">{group}</h3>
+            </div>
+            <ul className="mt-4 grid grid-cols-3 gap-2.5">
+              {slide.items.filter((it) => it.group === group).map((it) => (
+                <li key={it.name} className="flex min-w-0 flex-col items-center rounded-xl bg-muted/60 p-3 text-center">
+                  <span
+                    className={
+                      it.logo
+                        ? "flex size-12 items-center justify-center overflow-hidden rounded-xl bg-white"
+                        : `flex size-12 items-center justify-center rounded-xl text-base font-black text-white ${it.color}`
+                    }
+                    aria-hidden
+                  >
+                    {it.logo ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img src={it.logo} alt="" className="size-full object-contain" />
+                    ) : (
+                      it.icon
+                    )}
+                  </span>
+                  <span className="mt-2 truncate text-base font-bold sm:text-lg">{it.name}</span>
+                  <span className="mt-0.5 text-xs font-semibold text-muted-foreground sm:text-sm">{it.category}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+      {slide.footer && (
+        <p className="mt-6 rounded-2xl bg-muted px-5 py-4 text-lg font-semibold">
+          {slide.footer}
+        </p>
+      )}
     </div>
   );
 }
@@ -153,7 +218,13 @@ export function WarningSlide({ slide }: { slide: Of<"warning"> }) {
                 className="mt-3 size-2.5 shrink-0 rounded-full bg-tone-warning"
                 aria-hidden
               />
-              <span>{p}</span>
+              <span>
+                {i === 0 ? (
+                  <HighlightText text={p} match="할루시네이션" />
+                ) : (
+                  p
+                )}
+              </span>
             </li>
           ))}
         </ul>

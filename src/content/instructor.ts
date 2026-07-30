@@ -11,7 +11,7 @@ export const instructor = {
   photo: "/instructor-portrait.jpg",
   // 자세한 경력은 아래 '걸어온 길'에 있으니, 여기서는 세 문장만.
   intro: [
-    "AI 교육 브랜드 '아이크루(AICREW)'를 운영합니다. 보조강사 4명과 함께 330명을 가르치고 있고, EBS 특강에서는 경기영상고 학생들을 만났습니다.",
+    "AI 교육 브랜드 '아이크루(AICREW)'를 운영합니다. 보조강사 4명과 함께 342명을 가르치고 있고, EBS 특강에서는 경기영상고 학생들을 만났습니다.",
     "저는 컴퓨터공학 전공자가 아닙니다. 5년째 AI에게 말을 걸어서 프로그램을 만듭니다. 지금 보고 계신 이 사이트도 그렇게 만들었습니다.",
     "\"저는 컴퓨터를 잘 몰라서요\" — 가장 많이 듣는 말입니다. 괜찮습니다. 이 수업은 컴퓨터를 잘하는 법이 아니라, AI에게 말 거는 법을 배우는 시간입니다.",
   ],
@@ -70,10 +70,10 @@ export const instructor = {
   ],
   /** 수업에서 실제로 다루는 도구들 */
   tools: [
-    "ChatGPT",
-    "Gemini",
-    "Claude",
-    "NotebookLM",
+    "챗지피티",
+    "제미나이",
+    "클로드",
+    "노트북LM",
     "Midjourney",
     "Kling AI",
     "Higgsfield",
@@ -84,18 +84,21 @@ export const instructor = {
       value: "카카오톡 오픈채팅",
       href: "https://open.kakao.com/o/gqDZndGi",
       icon: "chat" as const,
+      className: "bg-[#FEE500] text-[#391B1B] hover:bg-[#FEE500]/90",
     },
     {
       label: "이메일로 문의하기",
       value: "aitoolbee79@gmail.com",
       href: "mailto:aitoolbee79@gmail.com",
       icon: "mail" as const,
+      className: "bg-[#3B82F6] text-white hover:bg-[#3B82F6]/90",
     },
     {
       label: "아이크루 아카데미",
       value: "aicrew.rnpick.com",
       href: "https://aicrew.rnpick.com",
       icon: "link" as const,
+      className: "bg-primary text-primary-foreground hover:bg-primary/90",
     },
   ],
 };

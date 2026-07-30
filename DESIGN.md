@@ -231,7 +231,7 @@ type SlideBase = { id: string; nav: string; tone: Tone; notes?: TeacherNote };
 | # | 제목 | 타입 | 대본 구간 |
 |---|---|---|---|
 | 1 | 1주차 · AI와 처음 만나기 | cover | 표지 (3시간) |
-| 2 | 오늘 끝나면 이렇게 됩니다 | goal | 이 시간의 목표 ①②③ |
+| 2 | 오늘 이후에 여러분은 이렇게 변합니다 | goal | 이 시간의 목표 ①②③ |
 | 3 | AI는 '말이 통하는 똑똑한 조수' | point | ① 오프닝 |
 | 4 | LLM = 엄청나게 많은 책을 읽은 사람 | analogy | ② 개념 |
 | 5 | 생성형 AI = 그 지식으로 새로 만드는 것 | point | ② 개념 |
