@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Check, ExternalLink, ThumbsDown, ThumbsUp } from "lucide-react";
 import { PromptCard } from "@/components/prompt/prompt-card";
 import { HighlightText } from "@/components/deck/highlight-text";
@@ -205,6 +206,36 @@ export function PromptSlide({ slide }: { slide: Of<"prompt"> }) {
         {slide.prompts.map((p) => (
           <PromptCard key={p.id} prompt={p} />
         ))}
+      </div>
+    </div>
+  );
+}
+
+export function PhotoPromptSlide({ slide }: { slide: Of<"photo-prompt"> }) {
+  return (
+    <div>
+      <h2 className={H2}>{slide.title}</h2>
+      {slide.lead && (
+        <p className={`mt-4 ${MEASURE} ${LEAD} text-muted-foreground`}>{slide.lead}</p>
+      )}
+
+      <div className="mt-6 grid gap-6 lg:grid-cols-2 lg:items-start">
+        <figure className="overflow-hidden rounded-2xl border-2 border-border">
+          <Image
+            src={slide.image.src}
+            alt={slide.image.alt}
+            width={900}
+            height={900}
+            className="h-auto w-full object-cover"
+          />
+          {slide.image.caption && (
+            <figcaption className="border-t-2 border-border bg-muted/60 px-4 py-3 text-base font-semibold text-muted-foreground">
+              {slide.image.caption}
+            </figcaption>
+          )}
+        </figure>
+
+        <PromptCard prompt={slide.prompt} />
       </div>
     </div>
   );

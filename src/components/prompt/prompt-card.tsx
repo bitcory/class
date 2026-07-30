@@ -75,7 +75,7 @@ export function PromptCard({
         )}
 
         {/* 프롬프트 본문 — 노란 칸은 눌러서 수정 */}
-        <p className="text-xl leading-[1.9] font-medium sm:text-[1.35rem]">
+        <p className="text-xl leading-[1.9] font-medium whitespace-pre-line sm:text-[1.35rem]">
           {parts.map((p, i) =>
             p.type === "text" ? (
               <span key={i}>{p.value}</span>

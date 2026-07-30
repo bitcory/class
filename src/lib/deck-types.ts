@@ -140,6 +140,14 @@ export type Slide = SlideBase &
         prompts: PromptItem[];
       }
     | {
+        /** 완성 사진(좌) + 그대로 복사해 쓰는 프롬프트(우) */
+        type: "photo-prompt";
+        title: string;
+        lead?: string;
+        image: { src: string; alt: string; caption?: string };
+        prompt: PromptItem;
+      }
+    | {
         type: "warning";
         title: string;
         lead: string;
@@ -194,17 +202,27 @@ export type CollectedPrompt = PromptItem & {
 
 export function collectPrompts(weeks: Week[]): CollectedPrompt[] {
   return weeks.flatMap((w) =>
-    w.slides.flatMap((s) =>
-      s.type === "prompt"
-        ? s.prompts.map((p) => ({
-            ...p,
+    w.slides.flatMap((s) => {
+      if (s.type === "prompt")
+        return s.prompts.map((p) => ({
+          ...p,
+          week: w.week,
+          weekTitle: w.title,
+          slideId: s.id,
+          slideTitle: s.title,
+        }));
+      if (s.type === "photo-prompt")
+        return [
+          {
+            ...s.prompt,
             week: w.week,
             weekTitle: w.title,
             slideId: s.id,
             slideTitle: s.title,
-          }))
-        : [],
-    ),
+          },
+        ];
+      return [];
+    }),
   );
 }
 

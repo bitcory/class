@@ -17,6 +17,7 @@ import {
 } from "@/components/deck/slides/intro";
 import {
   CompareSlide,
+  PhotoPromptSlide,
   PromptSlide,
   RulesSlide,
   StepsSlide,
@@ -45,6 +46,7 @@ export function SlideView({
       {slide.type === "toolkit" && <ToolkitSlide slide={slide} />}
       {slide.type === "steps" && <StepsSlide slide={slide} />}
       {slide.type === "prompt" && <PromptSlide slide={slide} />}
+      {slide.type === "photo-prompt" && <PhotoPromptSlide slide={slide} />}
       {slide.type === "rules" && <RulesSlide slide={slide} />}
       {slide.type === "summary" && <SummarySlide slide={slide} />}
       {slide.type === "next" && <NextSlide slide={slide} />}

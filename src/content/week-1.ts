@@ -502,6 +502,55 @@ export const week1: Week = {
       },
     },
     {
+      id: "toy-figure",
+      nav: "미니어처 피규어",
+      tone: "practice",
+      type: "photo-prompt",
+      title: "잠깐, 재미로 하나만 — 내 사진으로 미니어처 피규어 만들기",
+      lead: "본인 얼굴이 잘 보이는 사진 한 장만 있으면 됩니다. 사진을 올린 뒤, 아래 글을 그대로 복사해서 같이 보내보세요.",
+      image: {
+        src: "/photo-prompts/toy-figure.jpg",
+        alt: "손바닥 위에 놓인 미니어처 피규어 사진 예시",
+        caption: "실제로 이렇게 만들어집니다",
+      },
+      prompt: {
+        id: "w1-toy-figure",
+        label: "실습",
+        title: "손 위의 미니어처 피규어",
+        hint: "얼굴이 잘 보이는 사진을 먼저 올리고, 이 글을 그대로 복사해서 함께 보내세요.",
+        template: `Use the attached reference image as a facial identity reference.
+Preserve the same facial structure, proportions, and likeness from the reference image, while allowing artistic High-Quality Soft Cute Toy Character styling adjustments.
+Do not change the person's identity.
+
+[Main Concept Summary]: A top-down photograph of a tiny, pocket-sized toy character version of the subject standing in the palm of a hand. The style is soft, high-quality, and cute.
+
+Pose & Composition:
+Top-down high-angle view looking down. The subject is a miniature doll standing firmly in the center of an adult human palm. The gaze is looking up towards the camera.
+
+Lighting & Color Palette:
+Soft, natural daylight illuminating the hand and the character. Warm and gentle color tones. Smooth, diffused shadows to enhance the 3D toy texture.
+
+Subject Details:
+The subject maintains the exact features, eye size, mouth placement, and expression from the reference, transformed into a cute toy aesthetic. The jawline is softly rounded and refined for cuteness. The skin has a flawless, smooth, soft vinyl or high-quality matte plastic toy texture. The outfit is miniature and detailed.
+
+Background & Atmosphere:
+The background is a blurred, out-of-focus natural setting (like a wooden table or cozy room) to emphasize the small scale. The atmosphere is charming and whimsical. Shallow depth of field, focusing sharply on the tiny character and the texture of the palm lines.
+
+Style Keywords:
+3D character render, toy photography, cute miniature, photorealistic texture, macro details, soft lighting, high resolution, 8k, sharp focus on subject, charming.`,
+        result: "본인 사진을 손바닥 위 미니어처 피규어로 바꿔줍니다.",
+      },
+      notes: {
+        time: "10~15분",
+        say: [
+          "오늘 배운 걸로 이런 것도 됩니다 — 재미로 보여주는 코너입니다.",
+        ],
+        tip: [
+          "사진(개인정보)이 부담스러운 분에게는 강요하지 않습니다. 예시 사진만 봐도 충분합니다.",
+        ],
+      },
+    },
+    {
       id: "first-chat",
       nav: "첫 대화",
       tone: "practice",
