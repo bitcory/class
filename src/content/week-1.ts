@@ -506,39 +506,35 @@ export const week1: Week = {
       nav: "미니어처 피규어",
       tone: "practice",
       type: "photo-prompt",
-      title: "잠깐, 재미로 하나만 — 내 사진으로 미니어처 피규어 만들기",
-      lead: "본인 얼굴이 잘 보이는 사진 한 장만 있으면 됩니다. 사진을 올린 뒤, 아래 글을 그대로 복사해서 같이 보내보세요.",
+      title: "잠깐, 재미로 하나만 — 우리 사진으로 미니어처 피규어 만들기",
+      lead: "얼굴과 옷차림이 잘 보이는 사진 한두 장만 있으면 됩니다. 사진을 올린 뒤, 아래 글을 그대로 복사해서 같이 보내보세요.",
       image: {
-        src: "/photo-prompts/toy-figure.jpg",
-        alt: "손바닥 위에 놓인 미니어처 피규어 사진 예시",
+        src: "/photo-prompts/couple-figure.jpg",
+        alt: "귀여운 3D 미니어처 피규어로 만들어진 커플 사진 예시",
         caption: "실제로 이렇게 만들어집니다",
       },
       prompt: {
         id: "w1-toy-figure",
         label: "실습",
-        title: "손 위의 미니어처 피규어",
-        hint: "얼굴이 잘 보이는 사진을 먼저 올리고, 이 글을 그대로 복사해서 함께 보내세요.",
-        template: `Use the attached reference image as a facial identity reference.
-Preserve the same facial structure, proportions, and likeness from the reference image, while allowing artistic High-Quality Soft Cute Toy Character styling adjustments.
-Do not change the person's identity.
-
-[Main Concept Summary]: A top-down photograph of a tiny, pocket-sized toy character version of the subject standing in the palm of a hand. The style is soft, high-quality, and cute.
+        title: "우리 커플 미니어처 피규어",
+        hint: "얼굴과 옷차림이 잘 보이는 사진을 먼저 올리고, 이 글을 그대로 복사해서 함께 보내세요.",
+        template: `Use the attached reference images as references for facial identity and clothing details. Preserve the facial features, likeness, and outfit designs from the reference images, adapting them into a cute 3D rendered miniature style. Do not change the person's identity. A high-angle 3D rendered portrait of the couple depicted as cute, realistic miniature figurines.
 
 Pose & Composition:
-Top-down high-angle view looking down. The subject is a miniature doll standing firmly in the center of an adult human palm. The gaze is looking up towards the camera.
+High-angle overhead shot (bird's-eye view) looking down at the subjects. The couple features oversized heads and small bodies (chibi proportions) while looking up at the camera.
 
 Lighting & Color Palette:
-Soft, natural daylight illuminating the hand and the character. Warm and gentle color tones. Smooth, diffused shadows to enhance the 3D toy texture.
+Soft, diffused studio lighting creating a toy-photography aesthetic. Bright, warm illumination with realistic shadowing that highlights the 3D textures.
 
 Subject Details:
-The subject maintains the exact features, eye size, mouth placement, and expression from the reference, transformed into a cute toy aesthetic. The jawline is softly rounded and refined for cuteness. The skin has a flawless, smooth, soft vinyl or high-quality matte plastic toy texture. The outfit is miniature and detailed.
+The faces retain a photorealistic appearance with high-quality skin textures and realistic expressions, blended with a 3D rendered finish. The bodies are small and cute, wearing the exact outfits from the provided reference photos, resized to fit the miniature proportions. Skin is flawless, smooth, and evenly toned.
 
 Background & Atmosphere:
-The background is a blurred, out-of-focus natural setting (like a wooden table or cozy room) to emphasize the small scale. The atmosphere is charming and whimsical. Shallow depth of field, focusing sharply on the tiny character and the texture of the palm lines.
+A clean, macro-style background with a strong tilt-shift effect (blurred edges) to emphasize the small scale of the figures. The mood is charming, polished, and artistic.
 
 Style Keywords:
-3D character render, toy photography, cute miniature, photorealistic texture, macro details, soft lighting, high resolution, 8k, sharp focus on subject, charming.`,
-        result: "본인 사진을 손바닥 위 미니어처 피규어로 바꿔줍니다.",
+3D render, Octane render, C4D, photorealistic miniature, chibi style, high angle, tilt-shift, macro photography, cute character design, volumetric lighting, 8k, sharp details. --ar 3:4`,
+        result: "커플 사진을 귀여운 3D 미니어처 피규어로 바꿔줍니다.",
       },
       notes: {
         time: "10~15분",
