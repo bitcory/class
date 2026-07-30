@@ -95,8 +95,8 @@ export const instructor = {
     },
     {
       label: "아이크루 아카데미",
-      value: "aicrew.rnpick.com",
-      href: "https://aicrew.rnpick.com",
+      value: "ai.toolb.kr",
+      href: "https://ai.toolb.kr/",
       icon: "link" as const,
       className: "bg-primary text-primary-foreground hover:bg-primary/90",
     },
