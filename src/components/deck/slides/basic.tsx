@@ -124,8 +124,8 @@ export function AnalogySlide({ slide }: { slide: Of<"analogy"> }) {
                     text={p.term}
                     matches={[
                       { match: "한식", className: "text-white-500" },
-                      { match: "중식", className: "text-orange-500" },
-                      { match: "일식", className: "text-green-500" },
+                      { match: "중식", className: "text-white-500" },
+                      { match: "일식", className: "text-white-500" },
                     ]}
                   />
                 ) : (
