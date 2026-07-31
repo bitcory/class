@@ -101,6 +101,8 @@ export type Slide = SlideBase &
           good: string;
           say: string;
           note?: string;
+          /** 예: "OpenAI · 미국" — 이름 아래 짧게 표시 */
+          company?: string;
           /** 있으면 이름을 눌렀을 때 이 주소로 새 탭에서 이동한다 */
           url?: string;
         }[];
