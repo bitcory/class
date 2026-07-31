@@ -200,6 +200,8 @@ export type CollectedPrompt = PromptItem & {
   weekTitle: string;
   slideId: string;
   slideTitle: string;
+  /** photo-prompt 슬라이드에서 왔다면 함께 보여줄 사진 */
+  image?: { src: string; alt: string; caption?: string };
 };
 
 export function collectPrompts(weeks: Week[]): CollectedPrompt[] {
@@ -221,6 +223,7 @@ export function collectPrompts(weeks: Week[]): CollectedPrompt[] {
             weekTitle: w.title,
             slideId: s.id,
             slideTitle: s.title,
+            image: s.image,
           },
         ];
       return [];

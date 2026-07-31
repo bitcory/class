@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { Check, ExternalLink, ThumbsDown, ThumbsUp } from "lucide-react";
 import { PromptCard } from "@/components/prompt/prompt-card";
+import { RevealPhoto } from "@/components/prompt/reveal-photo";
 import { HighlightText } from "@/components/deck/highlight-text";
 import type { Slide } from "@/lib/deck-types";
 import { cn } from "@/lib/utils";
@@ -230,20 +230,7 @@ export function PhotoPromptSlide({ slide }: { slide: Of<"photo-prompt"> }) {
       )}
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2 lg:items-start">
-        <figure className="overflow-hidden rounded-2xl border-2 border-border">
-          <Image
-            src={slide.image.src}
-            alt={slide.image.alt}
-            width={900}
-            height={900}
-            className="h-auto w-full object-cover"
-          />
-          {slide.image.caption && (
-            <figcaption className="border-t-2 border-border bg-muted/60 px-4 py-3 text-base font-semibold text-muted-foreground">
-              {slide.image.caption}
-            </figcaption>
-          )}
-        </figure>
+        <RevealPhoto image={slide.image} />
 
         <PromptCard prompt={slide.prompt} scrollBody />
       </div>

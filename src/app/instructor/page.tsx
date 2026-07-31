@@ -25,15 +25,15 @@ export default function InstructorPage() {
     <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-8 sm:py-20">
       {/* 프로필 */}
       <div className="flex flex-col items-start gap-7 sm:flex-row sm:items-center sm:gap-10">
-        {/* 정사각형 프로필 사진 — 위쪽 기준으로 잘라 얼굴이 잘리지 않게 한다 */}
-        <div className="relative aspect-square w-56 shrink-0 overflow-hidden rounded-3xl border-2 border-border bg-muted sm:w-80">
+        {/* 정사각형 프로필 사진 — 원본이 이미 1:1로 잘려 있어 그대로 채운다 */}
+        <div className="relative aspect-square w-56 shrink-0 overflow-hidden rounded-3xl border-2 border-border bg-neutral-950 sm:w-80">
           <Image
             src={instructor.photo}
             alt={`${instructor.name} 강사 사진`}
             fill
             priority
             sizes="(min-width: 640px) 320px, 224px"
-            className="object-cover object-top"
+            className="object-cover"
           />
           <span className="absolute inset-0 -z-10 flex items-center justify-center">
             <UserRound className="size-12 text-muted-foreground" aria-hidden />
@@ -59,7 +59,7 @@ export default function InstructorPage() {
       {/* 소개 */}
       <div className="mt-10 max-w-4xl space-y-4">
         {instructor.intro.map((p, i) => (
-          <p key={i} className="text-xl leading-relaxed">
+          <p key={i} className="text-xl leading-relaxed whitespace-pre-line">
             {p}
           </p>
         ))}

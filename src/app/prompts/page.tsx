@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ClipboardList } from "lucide-react";
 import { PromptCard } from "@/components/prompt/prompt-card";
+import { RevealPhoto } from "@/components/prompt/reveal-photo";
 import { collectPrompts } from "@/lib/deck-types";
 import { weeks } from "@/content/course";
 
@@ -70,11 +71,18 @@ export default function PromptsPage() {
             </Link>
           </div>
 
-          <div className="mt-6 grid items-start gap-6 lg:grid-cols-2">
-            {g.items.map((p) => (
-              <PromptCard key={p.id} prompt={p} />
-            ))}
-          </div>
+          {g.items.length === 1 && g.items[0].image ? (
+            <div className="mt-6 grid gap-6 lg:grid-cols-2">
+              <RevealPhoto image={g.items[0].image} />
+              <PromptCard prompt={g.items[0]} scrollBody />
+            </div>
+          ) : (
+            <div className="mt-6 grid items-start gap-6 lg:grid-cols-2">
+              {g.items.map((p) => (
+                <PromptCard key={p.id} prompt={p} />
+              ))}
+            </div>
+          )}
         </section>
       ))}
     </div>

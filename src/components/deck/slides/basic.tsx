@@ -85,9 +85,9 @@ export function PointSlide({ slide }: { slide: Of<"point"> }) {
       <h2 className={H2}>{slide.title}</h2>
       <p className={`mt-4 ${MEASURE} ${LEAD} font-semibold`}>{slide.lead}</p>
       {slide.body && (
-        <ul className="mt-6 space-y-3">
+        <ul className="mt-6 space-y-5">
           {slide.body.map((b, i) => (
-            <li key={i} className="flex gap-3 text-xl sm:text-2xl">
+            <li key={i} className="flex gap-3 text-xl leading-relaxed sm:text-2xl sm:leading-[1.7]">
               <span
                 className="mt-3 size-2.5 shrink-0 rounded-full bg-primary"
                 aria-hidden
