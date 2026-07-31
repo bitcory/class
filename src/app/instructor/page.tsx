@@ -25,15 +25,15 @@ export default function InstructorPage() {
     <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-8 sm:py-20">
       {/* 프로필 */}
       <div className="flex flex-col items-start gap-7 sm:flex-row sm:items-center sm:gap-10">
-        {/* 세로 인물 사진 — 정사각형으로 자르면 얼굴이 작아져서 3:4 그대로 쓴다 */}
-        <div className="relative aspect-[3/4] w-44 shrink-0 overflow-hidden rounded-3xl border-2 border-border bg-muted sm:w-60">
+        {/* 정사각형 프로필 사진 — 위쪽 기준으로 잘라 얼굴이 잘리지 않게 한다 */}
+        <div className="relative aspect-square w-56 shrink-0 overflow-hidden rounded-3xl border-2 border-border bg-muted sm:w-80">
           <Image
             src={instructor.photo}
             alt={`${instructor.name} 강사 사진`}
             fill
             priority
-            sizes="(min-width: 640px) 240px, 176px"
-            className="object-cover"
+            sizes="(min-width: 640px) 320px, 224px"
+            className="object-cover object-top"
           />
           <span className="absolute inset-0 -z-10 flex items-center justify-center">
             <UserRound className="size-12 text-muted-foreground" aria-hidden />
