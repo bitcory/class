@@ -4,10 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontScaleToggle } from "@/components/site/font-scale-toggle";
 import { TeacherToggle } from "@/components/site/teacher-toggle";
+import { weeks } from "@/content/course";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { label: "강의", href: "/week/1" },
   { label: "프롬프트 모음", href: "/prompts" },
   { label: "강사 소개", href: "/instructor" },
   { label: "도움말", href: "/help" },
@@ -44,27 +44,51 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
-          {NAV.map((item) => {
-            const active =
-              item.href === "/week/1"
-                ? pathname.startsWith("/week")
-                : pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "rounded-xl px-4 py-2.5 text-lg font-semibold transition-colors",
-                  active
-                    ? "bg-muted text-foreground"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground",
-                )}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+        <nav className="hidden items-center gap-3 md:flex">
+          <ul className="flex items-center gap-1 rounded-xl bg-muted/60 p-1">
+            {weeks.map((w) => {
+              const href = `/week/${w.week}`;
+              const active = pathname === href;
+              return (
+                <li key={w.week}>
+                  <Link
+                    href={href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "flex items-center justify-center rounded-lg px-3.5 py-2 text-lg font-black transition-colors",
+                      active
+                        ? "bg-background text-foreground shadow-sm"
+                        : w.status === "ready"
+                          ? "text-foreground/80 hover:bg-background/70 hover:text-foreground"
+                          : "text-muted-foreground/60 hover:text-muted-foreground",
+                    )}
+                  >
+                    {w.week}주
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="flex items-center gap-1">
+            {NAV.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "rounded-xl px-4 py-2.5 text-lg font-semibold transition-colors",
+                    active
+                      ? "bg-muted text-foreground"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                  )}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
         </nav>
 
         <div className="flex items-center gap-1.5">
@@ -76,11 +100,31 @@ export function Header() {
       {/* 모바일 내비 — 가로 스크롤 */}
       <nav className="overflow-x-auto border-t border-border/70 md:hidden">
         <ul className="flex w-max items-center gap-0.5 px-2 py-1.5">
+          {weeks.map((w) => {
+            const href = `/week/${w.week}`;
+            const active = pathname === href;
+            return (
+              <li key={w.week}>
+                <Link
+                  href={href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "block rounded-xl px-3 py-2 text-base font-semibold whitespace-nowrap",
+                    active
+                      ? "bg-foreground text-background"
+                      : w.status === "ready"
+                        ? "text-foreground/80 hover:bg-muted"
+                        : "text-muted-foreground/60 hover:bg-muted",
+                  )}
+                >
+                  {w.week}주차
+                </Link>
+              </li>
+            );
+          })}
+          <li aria-hidden className="mx-1 h-6 w-px shrink-0 bg-border" />
           {NAV.map((item) => {
-            const active =
-              item.href === "/week/1"
-                ? pathname.startsWith("/week")
-                : pathname === item.href;
+            const active = pathname === item.href;
             return (
               <li key={item.href}>
                 <Link
