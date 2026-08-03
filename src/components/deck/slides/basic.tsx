@@ -118,7 +118,7 @@ export function AnalogySlide({ slide }: { slide: Of<"analogy"> }) {
         {slide.pairs.map((p, i) => (
           <div key={i} className="rounded-2xl border-2 border-border p-5 sm:p-6">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <span className="rounded-xl bg-foreground px-4 py-2 text-center text-xl font-black text-background sm:text-2xl">
+              <span className="rounded-xl bg-foreground px-3 py-2 text-center text-xl font-black text-background sm:text-2xl">
                 {p.term === "한식·중식·일식" ? (
                   <MultiHighlightText
                     text={p.term}
