@@ -131,7 +131,12 @@ export type Slide = SlideBase &
         type: "steps";
         title: string;
         lead?: string;
-        steps: { label: string; detail?: string }[];
+        steps: {
+          label: string;
+          detail?: string;
+          /** 있으면 이 단계 오른쪽에 새 탭으로 여는 '바로가기' 버튼이 붙는다 */
+          url?: string;
+        }[];
         /** 체크 저장용 키 */
         storageKey?: string;
       }

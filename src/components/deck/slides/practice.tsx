@@ -147,44 +147,59 @@ export function StepsSlide({ slide }: { slide: Of<"steps"> }) {
       <ol className="mt-6 space-y-3">
         {slide.steps.map((s, i) => (
           <li key={i}>
-            <button
-              type="button"
-              onClick={() => toggle(i)}
-              aria-pressed={done[i]}
+            <div
               className={cn(
-                "flex w-full gap-4 rounded-2xl border-2 p-5 text-left transition-colors",
+                "flex w-full flex-col gap-3 rounded-2xl border-2 p-5 transition-colors sm:flex-row sm:items-center",
                 done[i]
                   ? "border-tone-done/50 bg-tone-done/8"
                   : "border-border hover:bg-muted",
               )}
             >
-              <span
-                className={cn(
-                  "flex size-11 shrink-0 items-center justify-center rounded-full text-lg font-black",
-                  done[i]
-                    ? "bg-tone-done text-white"
-                    : "bg-primary text-primary-foreground",
-                )}
-                aria-hidden
+              <button
+                type="button"
+                onClick={() => toggle(i)}
+                aria-pressed={done[i]}
+                className="flex gap-4 text-left sm:min-w-0 sm:flex-1"
               >
-                {done[i] ? <Check className="size-6" /> : i + 1}
-              </span>
-              <span className="min-w-0 flex-1">
                 <span
                   className={cn(
-                    "block text-xl font-bold break-words sm:text-2xl",
-                    done[i] && "text-muted-foreground line-through",
+                    "flex size-11 shrink-0 items-center justify-center rounded-full text-lg font-black",
+                    done[i]
+                      ? "bg-tone-done text-white"
+                      : "bg-primary text-primary-foreground",
                   )}
+                  aria-hidden
                 >
-                  {s.label}
+                  {done[i] ? <Check className="size-6" /> : i + 1}
                 </span>
-                {s.detail && (
-                  <span className="mt-2 block text-lg break-words text-muted-foreground sm:text-xl">
-                    {s.detail}
+                <span className="min-w-0 flex-1">
+                  <span
+                    className={cn(
+                      "block text-xl font-bold break-words sm:text-2xl",
+                      done[i] && "text-muted-foreground line-through",
+                    )}
+                  >
+                    {s.label}
                   </span>
-                )}
-              </span>
-            </button>
+                  {s.detail && (
+                    <span className="mt-2 block text-lg break-words text-muted-foreground sm:text-xl">
+                      {s.detail}
+                    </span>
+                  )}
+                </span>
+              </button>
+              {s.url && (
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-14 flex w-fit shrink-0 items-center gap-1.5 self-start rounded-xl bg-primary px-4 py-2.5 text-lg font-bold whitespace-nowrap text-primary-foreground transition-colors hover:bg-primary/90 sm:ml-0 sm:self-auto"
+                >
+                  바로가기
+                  <ExternalLink className="size-5 shrink-0" aria-hidden />
+                </a>
+              )}
+            </div>
           </li>
         ))}
       </ol>

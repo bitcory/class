@@ -477,6 +477,7 @@ export const week1: Week = {
           label: "chatgpt.com 에 들어갑니다",
           detail:
             "스마트폰이면 앱을 설치하셔도 됩니다. 인터넷 주소창에 chatgpt.com 을 그대로 치세요.",
+          url: "https://chatgpt.com",
         },
         {
           label: "'가입(Sign up)'을 누릅니다",

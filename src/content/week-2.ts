@@ -155,6 +155,7 @@ export const week2: Week = {
         {
           label: "notebooklm.google.com 에 들어갑니다",
           detail: "또는 '제미나이 노트북'으로 검색해서 들어가셔도 됩니다.",
+          url: "https://notebooklm.google.com",
         },
         {
           label: "지난주에 만든 구글 계정으로 로그인합니다",
