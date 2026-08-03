@@ -329,7 +329,7 @@ export function Deck({ week }: { week: Week }) {
 
       {/* 이어보기 */}
       {resumeAt !== null && (
-        <div className="mx-auto w-full max-w-5xl px-4 pt-5 sm:px-8">
+        <div className="mx-auto w-full max-w-5xl px-4 pt-5 sm:px-8 md:px-24">
           <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border-2 border-primary/40 bg-primary/5 px-5 py-4">
             <p className="text-lg font-semibold">
               지난번 {resumeAt + 1}번째 장까지 보셨어요.

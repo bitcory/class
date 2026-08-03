@@ -1,5 +1,6 @@
 import type { Week } from "@/lib/deck-types";
 import { week1 } from "./week-1";
+import { week2 } from "./week-2";
 
 export const course = {
   name: "생성형 AI 활용 실무",
@@ -22,17 +23,7 @@ export const course = {
   ],
 };
 
-// 2~4주차는 대본이 나오는 대로 week-2.ts 형태로 추가하면 된다.
-const week2: Week = {
-  week: 2,
-  title: "자료 모으기와 검증하기",
-  summary:
-    "AI로 논문 자료를 모으고, 그게 진짜인지 확인하는 법을 배웁니다. 노트북LM을 씁니다.",
-  duration: "3시간 (180분)",
-  status: "preparing",
-  slides: [],
-};
-
+// 3~4주차는 대본이 나오는 대로 week-3.ts 형태로 추가하면 된다.
 const week3: Week = {
   week: 3,
   title: "준비 중입니다",

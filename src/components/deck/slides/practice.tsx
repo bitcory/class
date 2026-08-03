@@ -169,17 +169,17 @@ export function StepsSlide({ slide }: { slide: Of<"steps"> }) {
               >
                 {done[i] ? <Check className="size-6" /> : i + 1}
               </span>
-              <span>
+              <span className="min-w-0 flex-1">
                 <span
                   className={cn(
-                    "block text-xl font-bold sm:text-2xl",
+                    "block text-xl font-bold break-words sm:text-2xl",
                     done[i] && "text-muted-foreground line-through",
                   )}
                 >
                   {s.label}
                 </span>
                 {s.detail && (
-                  <span className="mt-2 block text-lg sm:text-xl text-muted-foreground">
+                  <span className="mt-2 block text-lg break-words text-muted-foreground sm:text-xl">
                     {s.detail}
                   </span>
                 )}
