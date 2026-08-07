@@ -44,6 +44,11 @@ export function CompareSlide({ slide }: { slide: Of<"compare"> }) {
                   {t.name}
                 </span>
               )}
+              {t.enName && (
+                <span className="text-base font-semibold text-muted-foreground">
+                  {t.enName}
+                </span>
+              )}
               {t.company && (
                 <span className="text-base font-semibold text-muted-foreground">
                   {t.company}
@@ -88,6 +93,11 @@ export function CompareSlide({ slide }: { slide: Of<"compare"> }) {
                   ) : (
                     <span className="text-xl font-black tracking-tight">
                       {t.name}
+                    </span>
+                  )}
+                  {t.enName && (
+                    <span className="mt-1 block text-sm font-semibold text-muted-foreground">
+                      {t.enName}
                     </span>
                   )}
                   {t.company && (

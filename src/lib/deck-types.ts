@@ -103,6 +103,8 @@ export type Slide = SlideBase &
           note?: string;
           /** 예: "OpenAI · 미국" — 이름 아래 짧게 표시 */
           company?: string;
+          /** 예: "Deep Dive" — 이름 옆에 영문 원어 표시 */
+          enName?: string;
           /** 있으면 이름을 눌렀을 때 이 주소로 새 탭에서 이동한다 */
           url?: string;
         }[];

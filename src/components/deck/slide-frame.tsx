@@ -34,7 +34,7 @@ export function SlideFrame({
         번호는 상단 진행바에 있고, 성격은 제목과 색으로 이미 드러난다.
         강의 화면에서는 내용 말고 아무것도 안 보이는 편이 낫다.
       */}
-      <div className="mx-auto w-full max-w-5xl px-4 sm:px-8 md:px-24">
+      <div className="mx-auto w-full max-w-5xl px-6 sm:px-12 md:px-24 lg:px-32 xl:px-40">
         {children}
 
         <TeacherNotes notes={slide.notes} />
